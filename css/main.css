@@ -7,39 +7,25 @@ body {
   font-family: "Noto Sans JP", "Roboto", sans-serif;
 }
 
-/* 世話人紹介リンク */
-.manager {
-  font-size: clamp(1rem, 2vw, 2rem);
-}
-
 /* ファーストビュー */
 .fv {
   height: auto;
   max-width: 100vw;
-  margin-bottom: 10vw;
-}
-@media screen and (min-width: 960px) {
-  .fv {
-    height: auto;
-    max-width: 100vw;
-    margin-bottom: 100px;
-  }
 }
 
-.img-wrap {
+.fv-wrap {
   background: url(../img/fv.webp) center top;
   background-size: cover;
   position: relative;
   height: 80vh;
   max-width: 100%;
 }
-@media screen and (min-width: 960px) {
-  .img-wrap {
+@media screen and (max-width: 960px) {
+  .fv-wrap {
     background-image: url(../img/fv.webp);
-    max-width: 100%;
   }
 }
-.img-wrap::after {
+.fv-wrap::after {
   content: "";
   background-color: rgba(30, 115, 190, 0.4);
   position: absolute;
@@ -78,38 +64,12 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3vw;
+  font-size: 18px;
 }
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 960px) {
   .fv-text {
-    font-size: 18px;
+    font-size: 3vw;
   }
-}
-
-.slider img {
-  transform-origin: center top;
-  transform: scale(1.1);
-  transition: 5s ease-out;
-}
-.slider .slick-active img {
-  transform: scale(1);
-}
-
-.text-animate {
-  font-size: 36px;
-  opacity: 0.5; /* ほのかに光らせるための不透明度 */
-  transition: opacity 0.8s; /* ほのかな光のアニメーション */
-}
-.text-animate2 {
-  font-size: 24px;
-  opacity: 0.5;
-  transition: opacity 0.8s;
-}
-
-.character-animate, .character-animate2 {
-  display: inline-block;
-  opacity: 0;
-  transition: opacity 0.8s;
 }
 
 
@@ -119,30 +79,6 @@ body {
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  margin-bottom: 0;
-}
-@media screen and (min-width: 960px) {
-  .application {
-    margin-bottom: 100px;
-  }
-}
-
-.application h2 {
-  margin-bottom: 10vw;
-}
-@media screen and (min-width: 960px) {
-  .application h2 {
-    margin-bottom: 50px;
-  }
-}
-
-.application-btn {
-  margin-bottom: 10vw;
-}
-@media screen and (min-width: 960px) {
-  .application-btn {
-    margin-bottom: 50px;
-  }
 }
 
 .application-btn a {
@@ -164,7 +100,6 @@ body {
   .application-btn a {
     width: 70%;
     padding: 0 15px;
-    /* height: 8vw; */
   }
 }
 @media screen and (min-width: 960px) {
@@ -188,59 +123,18 @@ body {
 }
 
 /* 守成ロゴ */
-.shusei-logo {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  margin: 10vw;
-}
-@media screen and (min-width: 960px) {
-  .shusei-logo {
-    margin-bottom: 100px;
-  }
-}
-.shusei-logo h2 {
-  margin-bottom: 5vw;
-}
-@media screen and (min-width: 960px) {
-  .shusei-logo h2 {
-    margin-bottom: 50px;
-  }
-}
-
 .shusei-logo-wrap {
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  margin: 0 auto;
-  line-height: 20vw;
-}
-@media screen and (min-width: 960px) {
-  .shusei-logo-wrap {
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    align-items: top;
-  }
+  justify-content: center;
 }
 
-@media screen and (min-width: 960px) {
-  .shusei-logo-description {
-    display: flex;
-    align-items: center;
-  }
+.shusei-logo-img {
+  width: 100%;
+  max-width: 300px;
 }
-.shusei-logo-description a {
-  text-decoration: none;
-  color: red;
-}
-.shusei-logo-img img {
-  width: 50vw;
-}
-@media screen and (min-width: 960px) {
-  .shusei-logo-img img {
-    width: 100%;
+@media screen and (max-width: 960px) {
+  .shusei-logo-img {
+      width: 50vw;
   }
 }
 

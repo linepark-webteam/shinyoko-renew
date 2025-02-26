@@ -1,3 +1,7 @@
+p {
+  margin: 0;
+}
+
 /* ボタンのスタイル */
 .btn {
   border-radius: 40px;
