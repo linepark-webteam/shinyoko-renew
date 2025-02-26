@@ -1,0 +1,45 @@
+
+.header {
+  background-color: rgba(255,255,255,0);
+  display: flex;
+  justify-content: left;
+  padding: 0;
+  position: fixed;
+  z-index: 100;
+  transition: background-color .5s; /* 背景色と高さをじんわり変更 */
+  width: 100vw;
+  height: 13vw;
+  margin: 0;
+}
+
+@media screen and (min-width: 960px)
+  {
+  .header {
+    position: fixed;
+    height: 100px
+  }
+}
+/* ファーストビューを過ぎたあとのヘッダー */
+.header.transform {
+  background-color: rgba(255,255,255,1.0); /* 背景の透過を解除 */
+  box-shadow: 0 3px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.pc-logo {
+  display: none;
+}
+@media screen and (min-width: 960px) {
+  .pc-logo {
+    display: block;
+  }
+}
+/* .mobile-logo{
+  display: flex;
+  align-items: center;
+}
+@media screen and (min-width: 960px) {
+  .mobile-logo {
+    display: none;
+  }
+} */
+
