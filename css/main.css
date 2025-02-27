@@ -2,9 +2,9 @@
   box-sizing: border-box;
 }
 
-body {
+body, h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-family: "Noto Sans JP", "Roboto", sans-serif;
+  font-family: "Noto Sans JP", "Noto Serif JP", "Roboto", sans-serif;
 }
 
 /* ファーストビュー */
@@ -48,8 +48,7 @@ body {
 }
 
 .fv-headline {
-  font-family: serif;
-  /* ？ */
+  font-family: "Noto Serif JP", sans-serif;
   color: #ffffff;
   font-size: 36px;
   font-weight: bold;
@@ -361,7 +360,7 @@ body {
 }
 
 /* アクセス */
-.access-head-wrapper {
+.head-wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -377,11 +376,16 @@ body {
   }
 }
 
-.access-contents {
+.contents-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 90%;
+}
+.access-contents {
+  flex-direction: row-reverse;
 }
 
+.venue-desc-wrapper,
 .access-desc-wrapper {
   display: flex;
   flex-direction: column;
@@ -390,18 +394,28 @@ body {
   width: 40%;
 }
 
-.access-img-wrapper {
+.img-wrapper {
   width: 60%;
 }
 
-.access-desc {
+.venue-desc {
   font-size: 1.2rem;
 }
 
+.access-desc {
+  font-size: 1rem;
+}
+
+.venue-img,
 .access-img {
   width: 100%;
 }
 
+.google-map {
+  border-radius: 25px;
+  width: 600px;
+  height: 600px;
+}
 
 
 /* お問い合わせ */
