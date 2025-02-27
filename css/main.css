@@ -398,12 +398,28 @@ h6 {
 .venue-img-wrapper {
   width: 60%;
 }
-
 .venue-desc {
   font-size: 1.2rem;
 }
 .venue-img {
   width: 100%;
+  border-radius: 25px;
+}
+@media screen and (max-width: 1024px) {
+  .venue-contents {
+    flex-direction: column-reverse;
+    gap: 30px;
+    width: 100%;
+  }
+  .venue-desc-wrapper {
+    width: 100%;
+  }
+  .venue-desc {
+    font-size: 1rem;
+  }
+  .venue-img-wrapper {
+    width: 100%;
+  }
 }
 
 /* 会場アクセス */
@@ -427,9 +443,6 @@ h6 {
   flex-direction: row-reverse;
   justify-content: space-between;
   width: 90%;
-}
-@media screen and (max-width: 1024px) {
-
 }
 
 .access-desc-wrapper {
@@ -471,7 +484,7 @@ h6 {
 
 @media screen and (max-width: 1024px) {
   .access-contents {
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     gap: 30px;
@@ -479,6 +492,9 @@ h6 {
   }
   .access-desc-wrapper {
     width: 100%;
+  }
+  .access-desc {
+    font-size: 0.8rem;
   }
   .access-img-wrapper {
     width: 100%;
