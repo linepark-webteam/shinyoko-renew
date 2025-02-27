@@ -2,7 +2,13 @@
   box-sizing: border-box;
 }
 
-body, h1, h2, h3, h4, h5, h6 {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-family: "Noto Sans JP", "Noto Serif JP", "Roboto", sans-serif;
 }
@@ -359,8 +365,49 @@ body, h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* アクセス */
-.head-wrapper {
+/* 会場情報 */
+.venue-head-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.venue-head {
+  font-size: 32px;
+}
+@media screen and (max-width: 960px) {
+  .venue-head {
+    font-size: calc(18px + 4 * ((100vw - 320px) / 640));
+  }
+}
+
+.venue-contents {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.venue-desc-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 40%;
+}
+
+.venue-img-wrapper {
+  width: 60%;
+}
+
+.venue-desc {
+  font-size: 1.2rem;
+}
+.venue-img {
+  width: 100%;
+}
+
+/* 会場アクセス */
+.access-head-wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -369,23 +416,22 @@ body, h1, h2, h3, h4, h5, h6 {
 .access-head {
   font-size: 32px;
 }
-
 @media screen and (max-width: 960px) {
   .access-head {
     font-size: calc(18px + 4 * ((100vw - 320px) / 640));
   }
 }
 
-.contents-container {
+.access-contents {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   width: 90%;
 }
-.access-contents {
-  flex-direction: row-reverse;
+@media screen and (max-width: 1024px) {
+
 }
 
-.venue-desc-wrapper,
 .access-desc-wrapper {
   display: flex;
   flex-direction: column;
@@ -393,28 +439,54 @@ body, h1, h2, h3, h4, h5, h6 {
   justify-content: flex-start;
   width: 40%;
 }
-
-.img-wrapper {
-  width: 60%;
+@media screen and (max-width: 1399px) {
+  .access-desc-wrapper {
+    width: 45%;
+  }
 }
 
-.venue-desc {
-  font-size: 1.2rem;
+.access-img-wrapper {
+  width: 60%;
 }
 
 .access-desc {
   font-size: 1rem;
 }
 
-.venue-img,
 .access-img {
   width: 100%;
 }
 
-.google-map {
+.access-google-map {
   border-radius: 25px;
   width: 600px;
   height: 600px;
+} 
+@media screen and (max-width: 1399px) {
+  .access-google-map {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .access-contents {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+  .access-desc-wrapper {
+    width: 100%;
+  }
+  .access-img-wrapper {
+    width: 100%;
+  }
+  .access-google-map {
+    width: 100%;
+    height: 450px;
+  }
 }
 
 
