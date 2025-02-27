@@ -504,6 +504,12 @@ h6 {
     height: 450px;
   }
 }
+@media screen and (max-width: 500px) {
+  .access-google-map {
+    width: 100%;
+    height: 250px;
+  }
+}
 
 
 /* お問い合わせ */
