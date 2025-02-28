@@ -525,11 +525,11 @@ h6 {
   text-align: center;
 }
 .annual-schedule-table-tbody-row {
-  border-bottom: 1px solid #333;
   text-align: center;
 }
-th, td {
-  border-style: none;
+.annual-schedule-table th, 
+.annual-schedule-table td {
+  border-bottom: 1px solid #333;
   padding: 10px 0;
 }
 
