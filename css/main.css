@@ -517,6 +517,7 @@ h6 {
 }
 .annual-schedule-table {
   width: 90%;
+  border-collapse: collapse;
 }
 .annual-schedule-table-th-row {
   background-color: #1e73be;
