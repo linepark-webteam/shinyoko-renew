@@ -16,7 +16,7 @@
   {
   .header {
     position: fixed;
-    height: 15vw;
+    height: 10svh;
   }
 }
 /* ファーストビューを過ぎたあとのヘッダー */
