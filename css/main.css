@@ -147,40 +147,46 @@ h6 {
   margin: 0 auto;
 }
 
-/* @media screen and (min-width: 960px) {
-  .about {
-    margin: 0 auto 100px;
-  }
-} */
-
 .about-wrap {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .delimiter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* 背景画像 */
   width: 100%;
-  height: 70vh;
+  height: 400px;
   background-image: url(../img/yokohama-landmark-crop.webp);
   background-color: rgba(0, 0, 0, 1);
   background-blend-mode: lighten;
   background-repeat: no-repeat;
-  background-size: 500%;
+  background-size: 100%;
   background-position: center top;
   padding: 0;
 }
 
-@media screen and (min-width: 390px) {
+@media screen and (max-width: 1400px) {
   .delimiter {
-    background-size: 600%;
+    background-size: 200%;
+    background-position: center bottom;
+  }
+}
+
+/* @media screen and (min-width: 390px) {
+  .delimiter {
+    background-position: center bottom;
+    background-size: 200%;
   }
 }
 
 @media screen and (min-width: 500px) {
   .delimiter {
-    background-size: 380%;
+    background-size: 200%;
   }
 }
 
@@ -204,40 +210,30 @@ h6 {
     background-image: url(../img/yokohama-landmark.webp);
     background-size: 190%;
   }
-}
+} */
 
 .section-title {
-  width: 100%;
-  height: 65vh;
-  background-color: rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (min-width: 960px) {
-  .section-title {
-    height: 60vh;
-  }
-}
-
-.section-title h2 {
   color: #fff;
-  background-color: rgba(0, 0, 0, 0);
+  z-index: 100;
 }
 
 .about-list {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   background-color: rgba(0, 0, 0, 0.2);
-  height: 5vh;
+  width: 100%;
+  height: inherit;
 }
 
-@media screen and (min-width: 960px) {
+/* @media screen and (max-width: 960px) {
   .about-list {
     height: 10vh;
   }
-}
+} */
 
 .about-list a {
   display: flex;
@@ -263,17 +259,23 @@ h6 {
   text-align: center;
   padding: 20px 0;
   width: 20%;
+  height: 80px;
   cursor: pointer;
   margin-right: 1vw;
   border-radius: 2vw 2vw 0 0;
 }
+@media screen and (max-width: 500px) {
+  .about-list-item {
+    height: 45px;
+  }
+}
 
-@media screen and (min-width: 960px) {
+/* @media screen and (min-width: 960px) {
   .about-list-item {
     margin-right: 10px;
     border-radius: 10px 10px 0 0;
   }
-}
+} */
 
 .about-list a:hover {
   background-color: #ffffff;
@@ -375,6 +377,7 @@ h6 {
 .venue-head {
   font-size: 32px;
 }
+
 @media screen and (max-width: 960px) {
   .venue-head {
     font-size: calc(18px + 4 * ((100vw - 320px) / 640));
@@ -398,25 +401,31 @@ h6 {
 .venue-img-wrapper {
   width: 60%;
 }
+
 .venue-desc {
   font-size: 1.2rem;
 }
+
 .venue-img {
   width: 100%;
   border-radius: 25px;
 }
+
 @media screen and (max-width: 1024px) {
   .venue-contents {
     flex-direction: column-reverse;
     gap: 30px;
     width: 100%;
   }
+
   .venue-desc-wrapper {
     width: 100%;
   }
+
   .venue-desc {
     font-size: 1rem;
   }
+
   .venue-img-wrapper {
     width: 100%;
   }
@@ -432,6 +441,7 @@ h6 {
 .access-head {
   font-size: 32px;
 }
+
 @media screen and (max-width: 960px) {
   .access-head {
     font-size: calc(18px + 4 * ((100vw - 320px) / 640));
@@ -452,6 +462,7 @@ h6 {
   justify-content: flex-start;
   width: 40%;
 }
+
 @media screen and (max-width: 1399px) {
   .access-desc-wrapper {
     width: 45%;
@@ -474,7 +485,8 @@ h6 {
   border-radius: 25px;
   width: 600px;
   height: 600px;
-} 
+}
+
 @media screen and (max-width: 1399px) {
   .access-google-map {
     width: 450px;
@@ -490,20 +502,25 @@ h6 {
     gap: 30px;
     width: 100%;
   }
+
   .access-desc-wrapper {
     width: 100%;
   }
+
   .access-desc {
     font-size: 0.8rem;
   }
+
   .access-img-wrapper {
     width: 100%;
   }
+
   .access-google-map {
     width: 100%;
     height: 450px;
   }
 }
+
 @media screen and (max-width: 500px) {
   .access-google-map {
     width: 100%;
@@ -515,6 +532,7 @@ h6 {
 .annual-schedule-head {
   font-size: 32px;
 }
+
 @media screen and (max-width: 960px) {
   .annual-schedule-head {
     font-size: calc(18px + 4 * ((100vw - 320px) / 640));
@@ -525,26 +543,33 @@ h6 {
   display: flex;
   justify-content: center;
 }
+
 .annual-schedule-table {
   width: 90%;
   border-collapse: collapse;
 }
+
 .annual-schedule-table-th-row {
   background-color: #1e73be;
   color: #fff;
   text-align: center;
 }
+
 .annual-schedule-table-tbody-row {
   text-align: center;
 }
+
 .annual-schedule-table-tbody-row:nth-child(odd) {
-  background-color: #ffffff; /* 白 */
+  background-color: #ffffff;
+  /* 白 */
 }
 
 .annual-schedule-table-tbody-row:nth-child(even) {
-  background-color: #e6f2ff; /* 薄いブルー */
+  background-color: #e6f2ff;
+  /* 薄いブルー */
 }
-.annual-schedule-table th, 
+
+.annual-schedule-table th,
 .annual-schedule-table td {
   border-bottom: 1px solid #4663b2;
   padding: 10px 0;
@@ -554,10 +579,11 @@ h6 {
   .annual-schedule-table {
     width: 100%;
   }
-  .annual-schedule-table th, 
-.annual-schedule-table td {
-  font-size: 0.8rem;
-}
+
+  .annual-schedule-table th,
+  .annual-schedule-table td {
+    font-size: 0.8rem;
+  }
 }
 
 
