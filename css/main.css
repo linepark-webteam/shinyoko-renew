@@ -517,6 +517,7 @@ h6 {
 }
 .annual-schedule-table {
   width: 90%;
+  
 }
 .annual-schedule-table-th-row {
   background-color: #1e73be;
@@ -528,12 +529,12 @@ h6 {
   text-align: center;
 }
 th, td {
+  border-style: none;
   padding: 10px 0;
 }
 
 
 /* お問い合わせ */
-
 .contact {
   margin-bottom: 5vw;
 }
