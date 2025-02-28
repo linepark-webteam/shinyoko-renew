@@ -511,6 +511,26 @@ h6 {
   }
 }
 
+.annual-schedule-table-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.annual-schedule-table {
+  width: 90%;
+}
+.annual-schedule-table-th-row {
+  background-color: #1e73be;
+  color: #fff;
+  text-align: center;
+}
+.annual-schedule-table-tbody-row {
+  border-bottom: 1px solid #333;
+  text-align: center;
+}
+th, td {
+  padding: 10px 0;
+}
+
 
 /* お問い合わせ */
 

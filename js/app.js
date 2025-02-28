@@ -26,11 +26,6 @@ $(function(){
   });
 });
 
-// fadeIn.js
-// fv上のテキストのフェードイン
-// $('.fv-headline').hide().fadeIn(1500);
-// $('.fv-text').hide().fadeIn(1500);
-
 // タブメニュー
 $(function(){
   $('.about-list-item').on('click', function(){
@@ -313,27 +308,6 @@ document.querySelectorAll(".thumb").forEach((thumbnail) => {
 
 // 初期設定としてimg-containerにイベントリスナーを設定
 attachImageContainerListener();
-
-
-
-// 申込みフォームの表示・非表示自動切換え
-// $(document).ready(function() {
-//   function toggleDisplayByEndDate(elementClass, endDate) {
-//     let now = new Date();
-//     let end = new Date(endDate);
-
-//     if (now <= end) {
-//       $("." + elementClass).show();
-//     } else {
-//       $("." + elementClass).hide();
-//     }
-//   }
-//   // 表示終了日時を指定
-//   toggleDisplayByEndDate("schedule1", "2024-08-26T23:59:59");
-//   toggleDisplayByEndDate("schedule2", "2024-09-23T23:59:59");
-//   toggleDisplayByEndDate("schedule3", "2024-10-28T23:59:59");
-//   // toggleDisplayByEndDate("schedule4", "2024-08-26T23:59:59");
-// });
 
 // new 申込みフォームの表示・非表示自動切換え
 $(document).ready(function () {
