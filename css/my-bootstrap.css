@@ -86,6 +86,9 @@ a:hover {
 .btn-primary {
   background-color: #4663b2; /* 背景色 */
   border-color: #4663b2; /* 枠線の色 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-primary:hover {
