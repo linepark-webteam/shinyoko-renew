@@ -511,6 +511,16 @@ h6 {
   }
 }
 
+/* 年間スケジュール */
+.annual-schedule-head {
+  font-size: 32px;
+}
+@media screen and (max-width: 960px) {
+  .annual-schedule-head {
+    font-size: calc(18px + 4 * ((100vw - 320px) / 640));
+  }
+}
+
 .annual-schedule-table-wrapper {
   display: flex;
   justify-content: center;
