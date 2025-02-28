@@ -526,6 +526,13 @@ h6 {
 .annual-schedule-table-tbody-row {
   text-align: center;
 }
+.annual-schedule-table-tbody-row:nth-child(odd) {
+  background-color: #ffffff; /* 白 */
+}
+
+.annual-schedule-table-tbody-row:nth-child(even) {
+  background-color: #e6f2ff; /* 薄いブルー */
+}
 .annual-schedule-table th, 
 .annual-schedule-table td {
   border-bottom: 1px solid #333;
