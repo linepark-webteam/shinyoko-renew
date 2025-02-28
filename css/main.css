@@ -517,7 +517,6 @@ h6 {
 }
 .annual-schedule-table {
   width: 90%;
-  
 }
 .annual-schedule-table-th-row {
   background-color: #1e73be;
@@ -531,6 +530,16 @@ h6 {
 .annual-schedule-table td {
   border-bottom: 1px solid #333;
   padding: 10px 0;
+}
+
+@media screen and (max-width: 500px) {
+  .annual-schedule-table {
+    width: 100%;
+  }
+  .annual-schedule-table th, 
+.annual-schedule-table td {
+  font-size: 0.8rem;
+}
 }
 
 
