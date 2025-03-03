@@ -61,9 +61,10 @@ $(window).on('scroll', function(){
   }
 });
 
+
 // ページトップに戻るボタン
 $(function(){
-  var topBtn=$('#page_top');
+  const topBtn=$('#page_top');
   topBtn.hide();
     
   //ボタンの表示設定
@@ -76,15 +77,8 @@ $(function(){
       topBtn.fadeOut();
     }
   });
-  
-  // ボタンをクリックしたら、スクロールして上に戻る
-  topBtn.click(function(){
-    $('body,html').animate({
-    scrollTop: 0},500);
-    return false;
   });
-  
-  });
+
 
   // contactform.js
   //ページを切り替えずに問い合わせ画面遷移
