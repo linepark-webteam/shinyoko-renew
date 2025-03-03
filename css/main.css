@@ -357,7 +357,7 @@ h6 {
 }
 
 /* 場所の詳細（小さな画面では文字を小さく） */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 430px) {
   .meeting-table-place {
     font-size: 0.8rem;
 }}
