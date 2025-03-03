@@ -62,6 +62,10 @@
     border-bottom: .6px solid #bababa;
 }
 
+.footer-logo {
+    width: 250px;
+}
+
 .copyright {
     display: flex;
     justify-content: center;
