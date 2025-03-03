@@ -14,17 +14,29 @@ $(function () {
   });
 });
 
-// fvのズームアウト
-$(function(){
-  $('.slider').slick({
-    fade: true,
-    arrows: false,
-    autoplay:true,
-    autoplaySpeed:1500,
-    pauseOnFocus: false,
-    pauseOnHover: false
+
+// ページ内リンククリック時にヘッダーの高さを考慮 ＆ スムーススクロール
+document.addEventListener("DOMContentLoaded", function () {
+  const headerHeight = document.querySelector(".header").offsetHeight; // ヘッダーの高さ取得
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        e.preventDefault(); // デフォルトのジャンプ動作を防ぐ
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth" // スムーズスクロール
+        });
+      }
+    });
   });
 });
+
 
 // タブメニュー
 $(function(){
