@@ -323,6 +323,45 @@ h6 {
   }
 }
 
+.meeting-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.meeting-table td {
+  padding: 8px 0;
+  vertical-align: top;
+}
+
+/* 左側のセル（ラベル部分） */
+.meeting-table td:first-child {
+  display: flex;
+  justify-content: flex-start; /* 左寄せ */
+  align-items: center;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* ラベル部分のスタイル */
+.label {
+  display: inline-block;
+  min-width: 80px; /* 適宜調整 */
+  text-align: left;
+}
+
+/* 「：」のスタイル */
+.colon {
+  display: inline-block;
+  min-width: 10px; /* 統一幅 */
+  text-align: right;
+}
+
+/* 場所の詳細（小さな画面では文字を小さく） */
+@media screen and (max-width: 375px) {
+  .meeting-table-place {
+    font-size: 0.8rem;
+}}
+
 .manager-table {
   font-size: clamp(.7rem, 1vw, 2rem);
 }
