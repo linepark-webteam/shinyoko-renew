@@ -654,40 +654,43 @@ h6 {
     font-size: calc(18px + 4 * ((100vw - 320px) / 640));
   }
 }
+
 .meeting-images-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
+  width: 100%;
 }
 
+/* 各行のスタイル */
 .meeting-images-row {
-  width: 90%;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
 }
 
+/* 各月の画像ブロック */
+.meeting-images-row div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: calc(25% - 20px); /* 991px以上で4列 */
+}
+
+/* 画像のスタイル */
 .meeting-image {
-  width: 180px;
+  width: 100%;
+  max-width: 200px;
   height: auto;
 }
-@media screen and (max-width: 991px) {
-  .meeting-image {
-    width: 120px;
-    height: auto;
-  }
-}
-@media screen and (max-width: 767px) {
-  .meeting-image {
-    width: 100px;
-    height: auto;
-  }
-}
-@media screen and (max-width: 500px) {
-  .meeting-image {
-    width: 80px;
-    height: auto;
+
+/* 768px以下では2列 */
+@media screen and (max-width: 768px) {
+  .meeting-images-row div {
+    width: calc(33.33% - 20px); /* 2列 */
   }
 }
 
