@@ -323,6 +323,10 @@ h6 {
   }
 }
 
+.about-text .meeting-date {
+  font-size: 1.2rem;
+}
+
 .meeting-table {
   width: 100%;
   border-collapse: collapse;
