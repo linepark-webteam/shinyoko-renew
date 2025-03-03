@@ -309,6 +309,23 @@ document.querySelectorAll(".thumb").forEach((thumbnail) => {
 // 初期設定としてimg-containerにイベントリスナーを設定
 attachImageContainerListener();
 
+// モーダルを開く
+function openModal(imgElement) {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+  const captionText = document.getElementById("caption");
+
+  modal.style.display = "flex"; // モーダルを表示
+  modalImg.src = imgElement.src; // クリックした画像をセット
+  captionText.innerHTML = imgElement.alt; // 画像のaltテキストをキャプションに設定
+}
+
+// モーダルを閉じる
+function closeModal() {
+  document.getElementById("imageModal").style.display = "none";
+}
+
+
 // new 申込みフォームの表示・非表示自動切換え
 $(document).ready(function () {
 

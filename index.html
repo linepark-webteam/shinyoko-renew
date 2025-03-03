@@ -453,7 +453,7 @@
       <div class="meeting-images-row">
         <div>
           <p>1月</p>
-          <img class="meeting-image" src="./img/coming-soon.png" alt="">
+          <img class="meeting-image" src="./img/coming-soon.png" alt="" onclick="openModal(this)">
         </div>
         <div>
           <p>2月</p>
@@ -501,6 +501,13 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- モーダル（拡大画像用） -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImg">
+      <div id="caption"></div>
     </div>
   </section>
 
