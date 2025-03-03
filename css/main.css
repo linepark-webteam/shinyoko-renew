@@ -318,9 +318,9 @@ h6 {
   }
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 991px) {
   .is-contents-active img {
-    max-width: 500px;
+    max-width: 300px;
   }
 }
 
