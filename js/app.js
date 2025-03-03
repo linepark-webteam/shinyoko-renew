@@ -309,6 +309,7 @@ document.querySelectorAll(".thumb").forEach((thumbnail) => {
 // 初期設定としてimg-containerにイベントリスナーを設定
 attachImageContainerListener();
 
+// 例会風景 画像をクリックでモーダルウィンドウ表示
 // モーダルを開く
 function openModal(imgElement) {
   const modal = document.getElementById("imageModal");
@@ -326,7 +327,7 @@ function closeModal() {
 }
 
 
-// new 申込みフォームの表示・非表示自動切換え
+// 申込みフォームの表示・非表示自動切換え
 $(document).ready(function () {
 
   function toggleDisplayByDate() {
