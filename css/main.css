@@ -769,16 +769,16 @@ form {
   background-color: rgb(243, 123, 123);
   color: #fff;
   font-weight: bold;
-  font-size: calc(16px + ((100vw - 320px) / 640));
-  border-radius: 1vw;
-  padding: 0.5vw 1vw;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 5px 10px;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 991px) {
   .required {
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 16px;
+    font-size: calc(16px + ((100vw - 320px) / 640));
+    border-radius: 1vw;
+    padding: 0.5vw 1vw;
   }
 }
 
@@ -786,16 +786,16 @@ form {
   background-color: rgb(154, 154, 154);
   color: #fff;
   font-weight: bold;
-  font-size: calc(16px + ((100vw - 320px) / 640));
-  border-radius: 1vw;
-  padding: 0.5vw 1vw;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 5px 10px;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 991px) {
   .any {
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 16px;
+    font-size: calc(16px + ((100vw - 320px) / 640));
+    border-radius: 1vw;
+    padding: 0.5vw 1vw;
   }
 }
 
