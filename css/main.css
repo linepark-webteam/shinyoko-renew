@@ -276,14 +276,13 @@ h6 {
 .is-contents-active {
   display: block;
   align-items: center;
-  flex-direction: column;
   justify-content: center;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 991px) {
   .is-contents-active {
     display: block;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
   }
 }
@@ -292,7 +291,7 @@ h6 {
 }
 @media screen and (max-width: 991px) {
   .is-contents-active img {
-    max-width: 300px;
+    max-width: 100%;
   }
 }
 
@@ -301,6 +300,11 @@ h6 {
 }
 
 /* 例会情報 */
+.about-meeting {
+  display: flex;
+  justify-content: center;
+}
+
 .meeting-table {
   width: 100%;
   border-collapse: collapse;
