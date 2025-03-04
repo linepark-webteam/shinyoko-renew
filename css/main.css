@@ -704,24 +704,19 @@ h6 {
 
 /* お問い合わせ */
 .contact {
-  margin-bottom: 5vw;
+  margin-bottom: 50px;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 991px) {
   .contact {
-    margin-bottom: 150px;
+    margin-bottom: 5vw;
   }
 }
 
 .contact-container {
   width: 100%;
+  max-width: 1600px;
   margin: 0 auto;
-}
-
-@media screen and (min-width: 960px) {
-  .contact-container {
-    max-width: 1600px;
-  }
 }
 
 .contact-headline {
