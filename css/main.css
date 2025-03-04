@@ -328,39 +328,28 @@ h6 {
 .about-text {
   margin-left: 30px;
 }
-@media screen and (max-width: 991px) {
-  .about-text {
-    margin-left: 0;
-  }
-}
-
 .about-text h2 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
 }
-
-@media screen and (max-width: 991px) {
-  .about-text h2 {
-    font-size: calc(22px + 2 * ((100vw - 320px) / 640));
-  }
-}
-
 .about-text h3 {
   font-size: 1.2rem;
   font-weight: bold;
 }
-
-@media screen and (max-width: 991px) {
-  .about-text h3 {
-    font-size: calc(18px + 2 * ((100vw - 320px) / 640));
-  }
-}
-
 .about-text p {
   font-size: 1rem;
 }
 @media screen and (max-width: 991px) {
+  .about-text {
+    margin-left: 0;
+  }
+  .about-text h2 {
+    font-size: calc(22px + 2 * ((100vw - 320px) / 640));
+  }
+  .about-text h3 {
+    font-size: calc(18px + 2 * ((100vw - 320px) / 640));
+  }
   .about-text p {
     font-size: calc(14px + 6 * ((100vw - 320px) / 640));
   }
@@ -410,13 +399,12 @@ h6 {
   border-radius: 25px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 991px) {
   .venue-contents {
     flex-direction: column-reverse;
     gap: 30px;
     width: 100%;
   }
-
   .venue-desc-wrapper {
     width: 100%;
   }
@@ -441,7 +429,7 @@ h6 {
   font-size: 32px;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 991px) {
   .access-head {
     font-size: calc(18px + 4 * ((100vw - 320px) / 640));
   }
@@ -493,7 +481,7 @@ h6 {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 991px) {
   .access-contents {
     flex-direction: column-reverse;
     justify-content: center;
@@ -532,7 +520,7 @@ h6 {
   font-size: 32px;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 991px) {
   .annual-schedule-head {
     font-size: calc(18px + 4 * ((100vw - 320px) / 640));
   }
@@ -596,7 +584,7 @@ h6 {
   font-size: 32px;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 991px) {
   .meeting-images-head {
     font-size: calc(18px + 4 * ((100vw - 320px) / 640));
   }
@@ -689,7 +677,7 @@ h6 {
   display: block;
   border-radius: 10px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
     .modal-content {
       max-width: 90%;
     }
@@ -735,14 +723,14 @@ h6 {
 .contact-headline {
   display: flex;
   justify-content: center;
-  font-size: calc(18px + 4 * ((100vw - 320px) / 640));
-  margin-bottom: 2vw;
+  font-size: 22px;
+  margin-bottom: 30px;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 991px) {
   .contact-headline {
-    font-size: 22px;
-    margin-bottom: 30px;
+    font-size: calc(18px + 4 * ((100vw - 320px) / 640));
+    margin-bottom: 2vw;
   }
 }
 
@@ -751,7 +739,7 @@ form {
   width: 90%;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 991px) {
   form {
     width: 90%;
   }
@@ -761,12 +749,12 @@ form {
   display: contents;
   width: inherit;
   margin-bottom: 15px;
-  font-size: calc(18px + 2 * ((100vw - 320px) / 640));
+  font-size: 24px;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 991px) {
   .form-group {
-    font-size: 24px;
+    font-size: calc(18px + 2 * ((100vw - 320px) / 640));
   }
 }
 
