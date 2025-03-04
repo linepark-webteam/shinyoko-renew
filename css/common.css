@@ -107,3 +107,51 @@
 }
 
 /* toPageTop */
+
+
+/* 例会申し込み ボタン */
+.application {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.application-btn a {
+    display: inline-block;
+    text-decoration: none;
+    color: #1e73be !important;
+    border-color: rgba(30, 115, 190, 1);
+    border: 1px solid;
+    border-radius: 60px;
+    font-weight: 600;
+    min-width: 240px;
+    height: 80px;
+    line-height: 50px;
+    font-size: 14px;
+    padding: 15px 20px;
+    width: 40%;
+    transition: all 0.3s;
+}
+
+@media screen and (max-width: 991px) {
+    .application-btn a {
+        width: 90%;
+        height: 50px;
+        font-size: calc(12px + 2 * ((100vw - 320px) / 680));
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .application-btn a {
+        width: 70%;
+    }
+}
+
+.application-btn a:hover {
+    color: #fff !important;
+    background-color: #04f7ff;
+    border-color: rgba(30, 115, 190, 1);
+}
+/* 例会申し込み ボタン */
