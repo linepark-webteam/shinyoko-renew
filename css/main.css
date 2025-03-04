@@ -313,43 +313,56 @@ h6 {
   font-size: clamp(.7rem, 1vw, 2rem);
 }
 
-@media screen and (min-width: 960px) {
+/* 守勢クラブとは */
+.about-whtis-shusei {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 991px) {
+  .about-whtis-shusei {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.about-text {
+  margin-left: 30px;
+}
+@media screen and (max-width: 991px) {
   .about-text {
-    margin-left: 30px;
+    margin-left: 0;
   }
 }
 
 .about-text h2 {
-  font-size: calc(22px + 2 * ((100vw - 320px) / 640));
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 991px) {
   .about-text h2 {
-    font-size: 24px;
+    font-size: calc(22px + 2 * ((100vw - 320px) / 640));
   }
 }
 
 .about-text h3 {
-  font-size: calc(18px + 2 * ((100vw - 320px) / 640));
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 991px) {
   .about-text h3 {
-    font-size: 20px;
+    font-size: calc(18px + 2 * ((100vw - 320px) / 640));
   }
 }
 
 .about-text p {
-  line-height: 200%;
-  font-size: calc(14px + 6 * ((100vw - 320px) / 640));
+  font-size: 1rem;
 }
-
-@media screen and (min-width: 960px) {
+@media screen and (max-width: 991px) {
   .about-text p {
-    font-size: 16px;
+    font-size: calc(14px + 6 * ((100vw - 320px) / 640));
   }
 }
 
