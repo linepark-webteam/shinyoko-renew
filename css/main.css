@@ -70,9 +70,6 @@ h6 {
   }
 }
 
-
-
-
 /* 守成ロゴ */
 .shusei-logo-wrap {
   display: flex;
@@ -153,12 +150,6 @@ h6 {
   height: inherit;
 }
 
-/* @media screen and (max-width: 960px) {
-  .about-list {
-    height: 10vh;
-  }
-} */
-
 .about-list a {
   display: flex;
   justify-content: center;
@@ -194,13 +185,6 @@ h6 {
     height: 45px;
   }
 }
-
-/* @media screen and (min-width: 960px) {
-  .about-list-item {
-    margin-right: 10px;
-    border-radius: 10px 10px 0 0;
-  }
-} */
 
 .about-list a:hover {
   background-color: #ffffff;
@@ -303,6 +287,13 @@ h6 {
     font-size: 0.8rem;
   }
 }
+
+/* 代表挨拶 */
+.about-greeting {
+  display: flex;
+  justify-content: center;
+}
+
 
 /* 世話人紹介 */
 #mainImage {
