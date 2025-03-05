@@ -303,9 +303,46 @@ p {
 
 
 /* 世話人紹介 */
+.about-intro-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 991px) {
+  .about-intro-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.about-intro-images {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media screen and (max-width: 991px) {
+  .about-intro-images {
+    align-items: center;
+  }
+}
+.about-intro-table {
+  width: 100%;
+}
 #mainImage {
   max-width: 100%;
+  height: auto;
 }
+@media screen and (max-width: 1199px) {
+  #mainImage {
+    max-width: 400px;
+  }
+}
+@media screen and (max-width: 991px) {
+  #mainImage {
+    max-width: 100%;
+  }
+}
+
 .manager-table {
   font-size: clamp(.7rem, 1vw, 2rem);
 }
