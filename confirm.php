@@ -43,7 +43,7 @@ if ($_POST) {
             display: flex;
             margin: 5vw auto 0;
             padding: 2vw 9vw;
-            border-radius: 2vw;
+            border-radius: 5vw;
             background: #4663b2;
             color: #fff;
             cursor: pointer;

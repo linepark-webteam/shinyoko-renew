@@ -404,7 +404,7 @@ p {
   font-size: 32px;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 991px) {
   .venue-head {
     font-size: calc(18px + 4 * ((100vw - 320px) / 640));
   }

@@ -47,7 +47,7 @@ if ($_POST) {
         $mail->clearAddresses(); // アドレスをクリア
         $mail->setFrom('noreply@shinyoko-shusei.com', '守成クラブ新横浜HP運営');
         $mail->addAddress('gapsmilegeek@gmail.com'); // 管理者のメールアドレス
-        $mail->addAddress('ywg.japan@gmail.com'); // 管理者のメールアドレス
+        // $mail->addAddress('ywg.japan@gmail.com'); // 管理者のメールアドレス
         $mail->Subject = '新横浜会場HPより、新しいお問い合わせがありました';
         $mail->Body    = nl2br("新横浜会場HPお問い合わせフォームより、\n新しいお問い合わせを以下の内容で受け付けました。\n\n" . $content);
         $mail->send(); // 管理者へメール送信
