@@ -82,35 +82,48 @@
 
 /* footer */
 
+/* bottom-components */
+.bottom-components {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+.bottom-components-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* bottom-components */
+
 /* SNS Icons */
 .sns-icons {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
 }
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
     .sns-icons {
         width: 50px;
         height: 50px;
     }
-}
+} */
 /* SNS Icons */
 
 
 /* toPageTop */
 /* Topへスクロールボタン全体 */
-#page_top {
+.totop {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50px;
     height: 50px;
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
     background: #333;
 }
 
-#page_top::before {
+.totop::before {
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     content: '\f077';
