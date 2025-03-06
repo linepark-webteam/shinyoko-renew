@@ -70,6 +70,17 @@ p {
     font-size: clamp(1.5rem, 3vw, 2rem);
   }
 }
+.character-animate {
+  opacity: 0;
+  display: inline-block;
+  font-size: 2rem;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 光るエフェクト */
+.character-animate.glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
 
 /* 守成ロゴ */
 .shusei-logo-wrap {
