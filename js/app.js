@@ -162,7 +162,7 @@ $(document).ready(function () {
           // 全文字が表示された後、光るエフェクトを適用
           setTimeout(() => {
               chars.css({
-                  textShadow: '0 0 10px rgba(255, 255, 255, 0.3)', // ほのかに光らせる
+                  textShadow: '0 0 10px rgba(255, 255, 255, 0.5)', // ほのかに光らせる
                   transition: 'text-shadow 0.5s ease-in-out'
               });
           }, 500);
