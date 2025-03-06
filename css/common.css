@@ -148,7 +148,7 @@
     justify-content: center;
 }
 
-.application-btn a {
+.application-btn a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,3 +186,4 @@
     border-color: rgba(30, 115, 190, 1);
 }
 /* 例会申し込み ボタン */
+
