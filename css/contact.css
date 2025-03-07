@@ -163,13 +163,11 @@ form {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-
     border-radius: 60px;
-    font-weight: 600;
     width: 40%;
-    min-width: 240px;
+    min-width: 180px;
+    max-width: 300px;
     height: 80px;
-    font-size: 1rem;
     transition: all 0.3s;
 }
 
@@ -188,34 +186,24 @@ form {
     }
 }
 
-/* confirm.phpに適用 */
-#form-result {
-    display: flex;
-    justify-content: center;
-}
-
-.input-data {
-    font-weight: normal;
-}
-
-.form-group input[type="submit"] {
-    display: flex;
-    justify-content: center;
-    background: #4663b2;
-    border: 1px solid;
-    color: #ffffff;
-    cursor: pointer;
-    font-weight: bold;
-    margin: 5vw auto 0;
-    border-radius: 20px;
-    padding: 30px 160px;
-    font-size: 20px;
+.submit-btn-text {
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 @media screen and (max-width: 991px) {
-    .form-group input[type="submit"] {
-        border-radius: 2vw;
-        padding: 4vw 20vw;
-        font-size: 3vw;
+    .submit-btn-text {
+        font-size: calc(18px + 2 * ((100vw - 320px) / 680));
     }
+
+}
+
+/* confirm.phpに適用 */
+.confirm-headline {
+    font-size: 1.2rem;
+    text-align: center;
+}
+.confirm-desc-wrapper {
+    display: flex;
+    justify-content: center;
 }

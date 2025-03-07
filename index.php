@@ -1,3 +1,17 @@
+<?php
+session_start(); // セッションを開始
+
+// フォームのデータをセッションから復元
+$memberType = $_SESSION['formData']['memberType'] ?? '';
+$registrationLocation = $_SESSION['formData']['registrationLocation'] ?? '';
+$companyName = $_SESSION['formData']['companyName'] ?? '';
+$name = $_SESSION['formData']['name'] ?? '';
+$kana = $_SESSION['formData']['kana'] ?? '';
+$email = $_SESSION['formData']['email'] ?? '';
+$phone = $_SESSION['formData']['phone'] ?? '';
+$message = $_SESSION['formData']['message'] ?? '';
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -41,7 +55,10 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3TMZ3DZJQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'G-Z3TMZ3DZJQ');
@@ -111,9 +128,9 @@
 
     <!-- コンテンツブロック -->
     <div class="about-contents-wrap container mb-3">
-        
-        <!-- meeting -->
-        <div class="about-contents is-contents-active">
+
+      <!-- meeting -->
+      <div class="about-contents is-contents-active">
         <div class="about-meeting">
           <div class="about-img">
             <img class="mb-3" src="./img/meeting4.webp" alt="例会時の写真" loading="lazy">
@@ -177,7 +194,7 @@
       <div class="about-contents">
         <div class="about-greeting container">
           <div class="about-img">
-            <img class="mb-3" src="./img/sasagawa2.webp" alt="笹川代表"  loading="lazy">
+            <img class="mb-3" src="./img/sasagawa2.webp" alt="笹川代表" loading="lazy">
           </div>
           <div class="about-text">
             <h2>代表あいさつ</h2>
@@ -198,46 +215,46 @@
       <div class="about-contents">
         <div class="about-introduction container">
 
-            <div id="desc"></div>
-            <div class="about-intro-wrapper">
-              <div class="about-intro-images">
-                <div class="">
-                  <div >
-                    <span id="repTitle" class="fs-4">代表世話人</span>
-                    <span>　</span>
-                    <span id="repName" class="fs-4">笹川 政吉</span>
-                  </div>
-                  <img id="mainImage" src="./img/sasagawa2.webp" alt="Main Image" class="img-fluid"  loading="lazy">
+          <div id="desc"></div>
+          <div class="about-intro-wrapper">
+            <div class="about-intro-images">
+              <div class="">
+                <div>
+                  <span id="repTitle" class="fs-4">代表世話人</span>
+                  <span>　</span>
+                  <span id="repName" class="fs-4">笹川 政吉</span>
                 </div>
+                <img id="mainImage" src="./img/sasagawa2.webp" alt="Main Image" class="img-fluid" loading="lazy">
               </div>
-              <div class="about-intro-table">
-                <div id="mainBio">
-                  <br>
-                  <table class="manager-table row table table-bordered">
-                    <tr>
-                      <td class="col-3 col-lg-2">会社名</td>
-                      <td>国際貿易YMG株式会社</td>
-                    </tr>
-                    <tr>
-                      <td>役職</td>
-                      <td>代表取締役</td>
-                    </tr>
-                    <tr>
-                      <td>業種</td>
-                      <td>貿易業、貿易商社、外国人材紹介、オーダースーツFC本部</td>
-                    </tr>
-                    <tr>
-                      <td>会社PR</td>
-                      <td>貿易輸出入、外国人材紹介、日本語学校運営、オーダースーツ業、やってますのでご相談下さい</td>
-                    </tr>
-                  </table>
-                  <div class="img-container row">
-                    <a href="#desc" class="col-3"><img class="each-img2 col-12" src="./img/sasagawa2.webp" alt="笹川 政吉" loading="lazy"></a>
-                    <a href="#desc" class="col-3"><img class="each-img3 col-12" src="./img/sasagawa3.webp" alt="笹川 政吉" loading="lazy"></a>
-                  </div>
+            </div>
+            <div class="about-intro-table">
+              <div id="mainBio">
+                <br>
+                <table class="manager-table row table table-bordered">
+                  <tr>
+                    <td class="col-3 col-lg-2">会社名</td>
+                    <td>国際貿易YMG株式会社</td>
+                  </tr>
+                  <tr>
+                    <td>役職</td>
+                    <td>代表取締役</td>
+                  </tr>
+                  <tr>
+                    <td>業種</td>
+                    <td>貿易業、貿易商社、外国人材紹介、オーダースーツFC本部</td>
+                  </tr>
+                  <tr>
+                    <td>会社PR</td>
+                    <td>貿易輸出入、外国人材紹介、日本語学校運営、オーダースーツ業、やってますのでご相談下さい</td>
+                  </tr>
+                </table>
+                <div class="img-container row">
+                  <a href="#desc" class="col-3"><img class="each-img2 col-12" src="./img/sasagawa2.webp" alt="笹川 政吉" loading="lazy"></a>
+                  <a href="#desc" class="col-3"><img class="each-img3 col-12" src="./img/sasagawa3.webp" alt="笹川 政吉" loading="lazy"></a>
                 </div>
               </div>
             </div>
+          </div>
 
           <div class="container">
             <div class="row">
@@ -584,64 +601,65 @@
         <h2>お問い合わせ</h2>
       </div>
 
+
+
       <form id="contact-form" action="confirm.php" method="post">
         <div class="form-group">
           <label for="memberType">会員区分:　<span class="any">任意</span></label>
           <select id="memberType" name="memberType">
             <option class="default" value="">--選択してください--</option>
-            <option value="正会員【ゴールドバッチ】">正会員【ゴールドバッチ】</option>
-            <option value="正会員【赤バッチ】">正会員【赤バッチ】</option>
-            <option value="準会員【緑バッチ】">準会員【緑バッチ】</option>
-            <option value="非会員">非会員</option>
+            <option value="正会員【ゴールドバッチ】" <?= ($memberType == "正会員【ゴールドバッチ】") ? 'selected' : '' ?>>正会員【ゴールドバッチ】</option>
+            <option value="正会員【赤バッチ】" <?= ($memberType == "正会員【赤バッチ】") ? 'selected' : '' ?>>正会員【赤バッチ】</option>
+            <option value="準会員【緑バッチ】" <?= ($memberType == "準会員【緑バッチ】") ? 'selected' : '' ?>>準会員【緑バッチ】</option>
+            <option value="非会員" <?= ($memberType == "非会員") ? 'selected' : '' ?>>非会員</option>
           </select>
         </div>
         <div class="form-group">
           <label for="registrationLocation">登録会場:　<span class="any">任意</span></label>
-          <input type="text" id="registrationLocation" name="registrationLocation">
+          <input type="text" id="registrationLocation" name="registrationLocation" value="<?= htmlspecialchars($registrationLocation) ?>">
         </div>
         <div class="form-group">
           <label for="companyName">会社名:　<span class="any">任意</span></label>
-          <input type="text" id="companyName" name="companyName">
+          <input type="text" id="companyName" name="companyName" value="<?= htmlspecialchars($companyName) ?>">
         </div>
         <div class="form-group">
           <label for="name">お名前:　<span class="required">必須</span></label>
-          <input type="text" id="name" name="name" required>
-          <label for="kana">ふりがな:　<span class="required">必須</span></label>
-          <input type="text" id="kana" name="kana" required>
+          <input type="text" id="name" name="name" value="<?= htmlspecialchars($name) ?>" required>
         </div>
         <div class="form-group">
+          <label for="kana">ふりがな:　<span class="required">必須</span></label>
+          <input type="text" id="kana" name="kana" value="<?= htmlspecialchars($kana) ?>" required>
         </div>
         <div class="form-group">
           <label for="email">Email:　<span class="required">必須</span></label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>" required>
         </div>
         <div class="form-group">
           <label for="phone">連絡先:　<span class="required">必須</span></label>
-          <input type="text" id="phone" name="phone" required>
+          <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($phone) ?>" required>
         </div>
         <div class="form-group">
           <label for="message">お問い合わせ内容:　<span class="required">必須</span></label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="message" required><?= htmlspecialchars($message) ?></textarea>
         </div>
         <div class="submit-btn-wrapper mt-5">
-            <button type="submit" class="submit-btn btn btn-primary"><span
-                class="">確認画面へ</span></button>
+          <button type="submit" class="submit-btn btn btn-primary"><span class="submit-btn-text">確認画面へ</span></button>
         </div>
-    </div>
-    </form>
-    <div id="form-result"></div>
+      </form>
+
+      <div id="form-result"></div>
     </div>
   </section>
 
   <!-- SNS icons & toTOP button -->
-  <div  id="page_top" class="bottom-components container-fruid">
+  <div id="page_top" class="bottom-components container-fruid">
     <div class="bottom-components-wrapper">
       <a href="#" target="_blank"><img class="sns-icons" src="./img/instagram.png" alt="Instagram" loading="lazy"></a>
       <a href="https://www.facebook.com/groups/837003928068548/?locale=ja_JP" target="_blank"><img class="sns-icons" src="./img/facebook.png" alt="Facebook" loading="lazy"></a>
       <a href="#" target="_blank"><img class="sns-icons" src="./img/line.png" alt="LINE" loading="lazy"></a>
       <a class="totop" href="#"></a>
     </div>
-    </div>
+  </div>
 
   <footer class="container-fluid">
     <div class="footer-items">
@@ -659,6 +677,7 @@
   <script src="https://kit.fontawesome.com/e7eaec89a2.js" crossorigin="anonymous"></script>
 
   <script src="./js/app.js"></script>
+  <script src="./js/contactform.js"></script>
 </body>
 
 </html>
