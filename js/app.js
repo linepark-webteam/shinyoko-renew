@@ -363,5 +363,5 @@ $(document).ready(function () {
   toggleDisplayByDate();
 
   // 指定した時間間隔でスケジュールの表示状態を更新
-  // setInterval(toggleDisplayByDate, 86400000); // 毎日更新
+  // setInterval(toggleDisplayByDate, 86400000); // 毎日更新(単位㎳)
 });
