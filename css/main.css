@@ -670,21 +670,27 @@ p {
   }
 }
 .image-wrapper {
-  position: relative;
-  display: inline-block;
-}
-/* 画像スタイル */
-.meeting-image {
   width: 100%;
   max-width: 200px;
   border-radius: 10px;
   height: auto;
-  transition: transform 0.2s ease-in-out;
+  overflow: hidden; /* 画像の拡大部分がはみ出さないようにする */
+  position: relative; /* 画像の位置調整のため */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 画像スタイル */
+.meeting-image {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
 }
 /* meeting-image + expandable の両方のクラスを持つ要素のみ以下のスタイルを適用 */
 .meeting-image.expandable:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.2);
 }
 
 /* 拡大アイコン */
@@ -698,7 +704,7 @@ p {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* ホバー時やタップ時にアイコンを表示 */
+/* ホバー時やタップ時にアイコンを少し透明に */
 .image-wrapper:hover .zoom-icon {
   opacity: 0.5;
 }
