@@ -127,6 +127,7 @@ $(document).ready(function () {
 });
 
 
+
 // 世話人紹介
 // imageData、bios、およびrepresentativesのデータ構造を定義します
 const imageData = [
@@ -256,6 +257,7 @@ document.querySelectorAll(".thumb").forEach((thumbnail) => {
 attachImageContainerListener();
 
 
+
 // 例会風景 モーダルの制御
 let currentIndex = 0; // 現在の画像のインデックス
 let images = []; // 画像リスト
@@ -336,6 +338,7 @@ document.getElementById("imageModal").addEventListener("click", function (event)
     closeModal();
   }
 });
+
 
 
 // 申込みフォームの表示・非表示自動切換え
