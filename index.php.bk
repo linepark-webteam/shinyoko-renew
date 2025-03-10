@@ -304,7 +304,7 @@ $message = $_SESSION['formData']['message'] ?? '';
   </section>
 
   <!-- 例会申し込みボタン -->
-  <section class="application container">
+  <section class="application container my-5">
     <div class="schedule-group">
 
       <div class="application-btn schedule" data-start-date="2025-01-27T00:00:00" data-end-date="2025-03-24T23:59:59">
