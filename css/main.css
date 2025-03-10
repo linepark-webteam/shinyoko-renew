@@ -782,13 +782,9 @@ p {
 /* モーダル キャプションのスタイル */
 #caption {
   text-align: center;
-  color: white;
+  color: #ffffff;
   font-size: 20px;
   margin-top: 10px;
-}
-/* 画像とキャプションを縦方向に整理 */
-.modal img {
-  align-self: center; /* 画像を中央に配置 */
 }
 
 /* 「前へ」「次へ」ボタンのデザイン */
