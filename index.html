@@ -1,17 +1,3 @@
-<?php
-session_start(); // セッションを開始
-
-// フォームのデータをセッションから復元
-$memberType = $_SESSION['formData']['memberType'] ?? '';
-$registrationLocation = $_SESSION['formData']['registrationLocation'] ?? '';
-$companyName = $_SESSION['formData']['companyName'] ?? '';
-$name = $_SESSION['formData']['name'] ?? '';
-$kana = $_SESSION['formData']['kana'] ?? '';
-$email = $_SESSION['formData']['email'] ?? '';
-$phone = $_SESSION['formData']['phone'] ?? '';
-$message = $_SESSION['formData']['message'] ?? '';
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
