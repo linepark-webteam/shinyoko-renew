@@ -778,11 +778,35 @@ p {
   cursor: pointer;
 }
 
-
 /* モーダル キャプションのスタイル */
 #caption {
   text-align: center;
   color: white;
   font-size: 20px;
   margin-top: 10px;
+}
+
+/* 「前へ」「次へ」ボタンのデザイン */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+/* 左右のボタンの位置 */
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* ホバー時の透明度調整 */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }

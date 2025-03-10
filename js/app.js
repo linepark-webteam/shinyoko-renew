@@ -256,22 +256,79 @@ document.querySelectorAll(".thumb").forEach((thumbnail) => {
 // 初期設定としてimg-containerにイベントリスナーを設定
 attachImageContainerListener();
 
-// 例会風景 画像をクリックでモーダルウィンドウ表示
-// モーダルを開く
-function openModal(imgElement) {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImg");
-  const captionText = document.getElementById("caption");
+let currentIndex = 0; // 現在の画像のインデックス
+let images = []; // 画像リスト
 
-  modal.style.display = "flex"; // モーダルを表示
-  modalImg.src = imgElement.src; // クリックした画像をセット
-  captionText.innerHTML = imgElement.alt; // 画像のaltテキストをキャプションに設定
+// 画像クリック時にモーダルを開く
+function openModal(imgElement) {
+  images = Array.from(document.querySelectorAll(".meeting-image.expandable")); // クリック可能な画像を取得
+  currentIndex = images.indexOf(imgElement); // クリックした画像のインデックスを取得
+
+  updateModalImage();
+  document.getElementById("imageModal").style.display = "flex";
+
+  // キーボードイベントを追加
+  document.addEventListener("keydown", handleKeydown);
+}
+
+// モーダル内の画像を更新
+function updateModalImage() {
+  if (currentIndex >= 0 && currentIndex < images.length) {
+    document.getElementById("modalImg").src = images[currentIndex].src;
+    document.getElementById("caption").innerHTML = images[currentIndex].alt;
+  }
+}
+
+// 次/前の画像へ移動
+function changeImage(direction) {
+  currentIndex += direction;
+
+  // 範囲外に行かないように調整
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1; // 最後の画像に移動
+  } else if (currentIndex >= images.length) {
+    currentIndex = 0; // 最初の画像に移動
+  }
+
+  updateModalImage();
 }
 
 // モーダルを閉じる
 function closeModal() {
   document.getElementById("imageModal").style.display = "none";
+
+  // キーボードイベントを削除
+  document.removeEventListener("keydown", handleKeydown);
 }
+
+// キーボードの左右矢印キーに対応
+function handleKeydown(event) {
+  if (event.key === "ArrowLeft") {
+    changeImage(-1);
+  } else if (event.key === "ArrowRight") {
+    changeImage(1);
+  } else if (event.key === "Escape") {
+    closeModal();
+  }
+}
+
+// スワイプイベントの追加
+let touchStartX = 0;
+document.getElementById("imageModal").addEventListener("touchstart", function (event) {
+  touchStartX = event.touches[0].clientX;
+});
+
+document.getElementById("imageModal").addEventListener("touchend", function (event) {
+  let touchEndX = event.changedTouches[0].clientX;
+  let diffX = touchStartX - touchEndX;
+
+  if (diffX > 50) {
+    changeImage(1); // スワイプ左で次の画像へ
+  } else if (diffX < -50) {
+    changeImage(-1); // スワイプ右で前の画像へ
+  }
+});
+
 
 
 // 申込みフォームの表示・非表示自動切換え

@@ -480,7 +480,7 @@ $message = $_SESSION['formData']['message'] ?? '';
           <p>1月</p>
           <div class="image-wrapper">
             <img class="meeting-image 
-          expandable" src="./img/click.png" alt="2025年1月" loading="lazy" onclick="openModal(this)">
+          expandable" src="./img/click01.png" alt="2025年1月" loading="lazy" onclick="openModal(this)">
             <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
           </div>
         </div>
@@ -488,7 +488,7 @@ $message = $_SESSION['formData']['message'] ?? '';
           <p>2月</p>
           <div class="image-wrapper">
             <!-- <img class="meeting-image" src="./img/coming-soon.png" alt=""> -->
-            <img class="meeting-image expandable" src="./img/click.png" alt="2025年2月" loading="lazy" onclick="openModal(this)">
+            <img class="meeting-image expandable" src="./img/click02.png" alt="2025年2月" loading="lazy" onclick="openModal(this)">
             <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
           </div>
         </div>
@@ -586,11 +586,16 @@ $message = $_SESSION['formData']['message'] ?? '';
     </div>
 
     <!-- モーダル（拡大画像用） -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-      <span class="close">&times;</span>
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
       <img class="modal-content" id="modalImg">
       <div id="caption"></div>
+
+      <!-- 前後の画像に切り替えるボタン -->
+      <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+      <span class="next" onclick="changeImage(1)">&#10095;</span>
     </div>
+
   </section>
 
 
