@@ -70,6 +70,7 @@ p {
     font-size: clamp(1.5rem, 3vw, 2rem);
   }
 }
+
 .character-animate {
   opacity: 0;
   display: inline-block;
@@ -232,9 +233,11 @@ p {
     justify-content: center;
   }
 }
+
 .is-contents-active img {
   max-width: 500px;
 }
+
 @media screen and (max-width: 991px) {
   .is-contents-active img {
     max-width: 100%;
@@ -250,6 +253,7 @@ p {
   display: flex;
   justify-content: center;
 }
+
 @media screen and (max-width: 991px) {
   .about-meeting {
     flex-direction: column;
@@ -305,6 +309,7 @@ p {
   display: flex;
   justify-content: center;
 }
+
 @media screen and (max-width: 991px) {
   .about-greeting {
     flex-direction: column;
@@ -318,6 +323,7 @@ p {
   display: flex;
   justify-content: space-between;
 }
+
 @media screen and (max-width: 991px) {
   .about-intro-wrapper {
     flex-direction: column;
@@ -331,23 +337,28 @@ p {
   flex-direction: column;
   align-items: flex-start;
 }
+
 @media screen and (max-width: 991px) {
   .about-intro-images {
     align-items: center;
   }
 }
+
 .about-intro-table {
   width: 100%;
 }
+
 #mainImage {
   max-width: 100%;
   height: auto;
 }
+
 @media screen and (max-width: 1199px) {
   #mainImage {
     max-width: 400px;
   }
 }
+
 @media screen and (max-width: 991px) {
   #mainImage {
     max-width: 100%;
@@ -367,6 +378,7 @@ p {
   display: flex;
   justify-content: center;
 }
+
 @media screen and (max-width: 991px) {
   .about-whtis-shusei {
     flex-direction: column;
@@ -377,28 +389,35 @@ p {
 .about-text {
   margin-left: 30px;
 }
+
 .about-text h2 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
 }
+
 .about-text h3 {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
 .about-text p {
   font-size: 1rem;
 }
+
 @media screen and (max-width: 991px) {
   .about-text {
     margin-left: 0;
   }
+
   .about-text h2 {
     font-size: calc(22px + 2 * ((100vw - 320px) / 640));
   }
+
   .about-text h3 {
     font-size: calc(18px + 2 * ((100vw - 320px) / 640));
   }
+
   .about-text p {
     font-size: calc(14px + 6 * ((100vw - 320px) / 640));
   }
@@ -454,6 +473,7 @@ p {
     gap: 30px;
     width: 100%;
   }
+
   .venue-desc-wrapper {
     width: 100%;
   }
@@ -661,25 +681,31 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: calc(25% - 20px); /* ｛4等分(25%)‐gap分(20px)｝で調整 */
+  width: calc(25% - 20px);
+  /* ｛4等分(25%)‐gap分(20px)｝で調整 */
 }
+
 /* 768px以下では3列 */
 @media screen and (max-width: 768px) {
   .meeting-item {
     width: calc(33.33% - 20px);
   }
 }
+
 .image-wrapper {
   width: 100%;
   max-width: 200px;
   border-radius: 10px;
   height: auto;
-  overflow: hidden; /* 画像の拡大部分がはみ出さないようにする */
-  position: relative; /* 画像の位置調整のため */
+  overflow: hidden;
+  /* 画像の拡大部分がはみ出さないようにする */
+  position: relative;
+  /* 画像の位置調整のため */
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 /* 画像スタイル */
 .meeting-image {
   width: 100%;
@@ -687,6 +713,7 @@ p {
   height: auto;
   transition: transform 0.3s ease-in-out;
 }
+
 /* meeting-image + expandable の両方のクラスを持つ要素のみ以下のスタイルを適用 */
 .meeting-image.expandable:hover {
   cursor: pointer;
@@ -711,7 +738,12 @@ p {
 
 /* モーダルのスタイル */
 .modal {
-  display: none; /* 初期状態で非表示 */
+  /* 初期状態は非表示 */
+  display: none;
+  /* modalが展開された後(JSで「display: flex;」適用後) */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -719,10 +751,6 @@ p {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  /* modalが展開された後(JSで「display: flex;」適用後) */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /* モーダル内の画像 */
@@ -732,10 +760,11 @@ p {
   display: block;
   border-radius: 10px;
 }
+
 @media screen and (max-width: 991px) {
-    .modal-content {
-      max-width: 90%;
-    }
+  .modal-content {
+    max-width: 90%;
+  }
 }
 
 /* モーダル 閉じるボタン */
@@ -757,4 +786,3 @@ p {
   font-size: 20px;
   margin-top: 10px;
 }
-
