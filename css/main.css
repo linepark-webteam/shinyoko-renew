@@ -810,3 +810,17 @@ p {
 .prev:hover, .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+@media screen and (max-width: 991px) {
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    padding: 10px 15px;
+  }
+  
+  /* 左右のボタンの位置 */
+  .prev { left: 0; }
+  .next { right: 0; }
+}
