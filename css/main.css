@@ -819,7 +819,7 @@ p {
 @media screen and (max-width: 991px) {
   .prev, .next {
     position: absolute;
-    top: 49%;
+    top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
     padding: 3px 10px;
