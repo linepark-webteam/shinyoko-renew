@@ -256,6 +256,8 @@ document.querySelectorAll(".thumb").forEach((thumbnail) => {
 // 初期設定としてimg-containerにイベントリスナーを設定
 attachImageContainerListener();
 
+
+// 例会風景 モーダルの制御
 let currentIndex = 0; // 現在の画像のインデックス
 let images = []; // 画像リスト
 
@@ -329,6 +331,12 @@ document.getElementById("imageModal").addEventListener("touchend", function (eve
   }
 });
 
+// 画像以外の部分をクリックでモーダルを閉じる
+document.getElementById("imageModal").addEventListener("click", function (event) {
+  if (event.target === this) {
+    closeModal();
+  }
+});
 
 
 // 申込みフォームの表示・非表示自動切換え
