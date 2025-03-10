@@ -817,7 +817,7 @@ p {
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    padding: 10px 15px;
+    padding: 3px 10px;
   }
   
   /* 左右のボタンの位置 */
