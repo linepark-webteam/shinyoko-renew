@@ -613,39 +613,39 @@ $message = $_SESSION['formData']['message'] ?? '';
           <label for="memberType">会員区分:　<span class="any">任意</span></label>
           <select id="memberType" name="memberType">
             <option class="default" value="">--選択してください--</option>
-            <option value="正会員【ゴールドバッチ】" <?= ($memberType == "正会員【ゴールドバッチ】") ? 'selected' : '' ?>>正会員【ゴールドバッチ】</option>
-            <option value="正会員【赤バッチ】" <?= ($memberType == "正会員【赤バッチ】") ? 'selected' : '' ?>>正会員【赤バッチ】</option>
-            <option value="準会員【緑バッチ】" <?= ($memberType == "準会員【緑バッチ】") ? 'selected' : '' ?>>準会員【緑バッチ】</option>
-            <option value="非会員" <?= ($memberType == "非会員") ? 'selected' : '' ?>>非会員</option>
+            <option value="正会員【ゴールドバッチ】">正会員【ゴールドバッチ】</option>
+            <option value="正会員【赤バッチ】">正会員【赤バッチ】</option>
+            <option value="準会員【緑バッチ】">準会員【緑バッチ】</option>
+            <option value="非会員">非会員</option>
           </select>
         </div>
         <div class="form-group">
           <label for="registrationLocation">登録会場:　<span class="any">任意</span></label>
-          <input type="text" id="registrationLocation" name="registrationLocation" value="<?= htmlspecialchars($registrationLocation) ?>">
+          <input type="text" id="registrationLocation" name="registrationLocation" value="">
         </div>
         <div class="form-group">
           <label for="companyName">会社名:　<span class="any">任意</span></label>
-          <input type="text" id="companyName" name="companyName" value="<?= htmlspecialchars($companyName) ?>">
+          <input type="text" id="companyName" name="companyName" value="">
         </div>
         <div class="form-group">
           <label for="name">お名前:　<span class="required">必須</span></label>
-          <input type="text" id="name" name="name" value="<?= htmlspecialchars($name) ?>" required>
+          <input type="text" id="name" name="name" value="" required>
         </div>
         <div class="form-group">
           <label for="kana">ふりがな:　<span class="required">必須</span></label>
-          <input type="text" id="kana" name="kana" value="<?= htmlspecialchars($kana) ?>" required>
+          <input type="text" id="kana" name="kana" value="" required>
         </div>
         <div class="form-group">
           <label for="email">Email:　<span class="required">必須</span></label>
-          <input type="email" id="email" name="email" value="<?= htmlspecialchars($email) ?>" required>
+          <input type="email" id="email" name="email" value="" required>
         </div>
         <div class="form-group">
           <label for="phone">連絡先:　<span class="required">必須</span></label>
-          <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($phone) ?>" required>
+          <input type="text" id="phone" name="phone" value="" required>
         </div>
         <div class="form-group">
           <label for="message">お問い合わせ内容:　<span class="required">必須</span></label>
-          <textarea id="message" name="message" required><?= htmlspecialchars($message) ?></textarea>
+          <textarea id="message" name="message" required></textarea>
         </div>
         <div class="submit-btn-wrapper mt-5">
           <button type="submit" class="submit-btn btn btn-primary"><span class="submit-btn-text">確認画面へ</span></button>

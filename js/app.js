@@ -252,7 +252,6 @@ document.querySelectorAll(".thumb").forEach((thumbnail) => {
     }
   });
 });
-
 // 初期設定としてimg-containerにイベントリスナーを設定
 attachImageContainerListener();
 
