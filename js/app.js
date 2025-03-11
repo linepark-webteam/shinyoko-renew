@@ -1,18 +1,22 @@
 // ヘッダーの透過・解除
-$(function () {
-  // スクロールを開始したら
-  $(window).on("scroll", function () {
-    // ファーストビューの高さを取得
-    mvHeight = $(".js-mv").height();
-    if ($(window).scrollTop() > mvHeight) {
-      // スクロールの位置がファーストビューより下の場合にclassを付与
-      $(".js-header").addClass("transform");
+document.addEventListener("DOMContentLoaded", function () {
+  const fvElement = document.querySelector(".js-fv");
+  const header = document.querySelector(".js-header");
+
+  if (!fvElement || !header) return; // 要素が存在しない場合は処理を中断
+
+  function handleScroll() {
+    const fvHeight = fvElement.clientHeight; // ファーストビューの高さを取得
+    if (window.scrollY > fvHeight) {
+      header.classList.add("transform"); // スクロール位置がファーストビューより下ならクラスを付与
     } else {
-      // スクロールの位置がファーストビューより上の場合にclassを外す
-      $(".js-header").removeClass("transform");
+      header.classList.remove("transform"); // スクロール位置が上ならクラスを削除
     }
-  });
+  }
+
+  window.addEventListener("scroll", handleScroll);
 });
+
 
 
 // ページ内リンククリック時にヘッダーの高さを考慮 ＆ スムーススクロール
@@ -39,16 +43,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // タブメニュー
-$(function(){
-  $('.about-list-item').on('click', function(){
-    let index = $('.about-list-item').index(this);
+document.addEventListener("DOMContentLoaded", function () {
+  const tabItems = document.querySelectorAll(".about-list-item");
+  const tabContents = document.querySelectorAll(".about-contents");
 
-    $('.about-list-item').removeClass('is-btn-active');
-    $(this).addClass('is-btn-active');
-    $('.about-contents').removeClass('is-contents-active');
-    $('.about-contents').eq(index).addClass('is-contents-active');
+  if (!tabItems.length || !tabContents.length) return; // 要素が存在しない場合は処理を中断
+
+  tabItems.forEach((item, index) => {
+    item.addEventListener("click", function () {
+      // すべてのタブから is-btn-active を削除
+      tabItems.forEach(tab => tab.classList.remove("is-btn-active"));
+      // クリックしたタブに is-btn-active を追加
+      this.classList.add("is-btn-active");
+
+      // すべてのコンテンツから is-contents-active を削除
+      tabContents.forEach(content => content.classList.remove("is-contents-active"));
+      // 対応するコンテンツに is-contents-active を追加
+      tabContents[index].classList.add("is-contents-active");
+    });
   });
 });
+
 
 // デリミタの背景
 $(window).on('scroll', function(){
