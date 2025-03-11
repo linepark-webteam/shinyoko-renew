@@ -77,7 +77,7 @@ $message = $_SESSION['formData']['message'] ?? '';
   <h1 class="title" style="display: none;">守成クラブ新横浜会場</h1>
 
   <!-- FV -->
-  <section class="fv js-mv slider container-fruid">
+  <section class="fv js-fv slider container-fruid">
     <div class="fv-wrap">
       <p class="fv-headline text-animate" data-text="新横浜の例会が始まる！"></p>
     </div>
@@ -657,7 +657,7 @@ $message = $_SESSION['formData']['message'] ?? '';
   </section>
 
   <!-- SNS icons & toTOP button -->
-  <div id="page_top" class="bottom-components container-fruid">
+  <div id="toPageTop" class="bottom-components container-fruid">
     <div class="bottom-components-wrapper">
       <a href="#" target="_blank"><img class="sns-icons" src="./img/instagram.png" alt="Instagram" loading="lazy"></a>
       <a href="https://www.facebook.com/groups/837003928068548/?locale=ja_JP" target="_blank"><img class="sns-icons" src="./img/facebook.png" alt="Facebook" loading="lazy"></a>

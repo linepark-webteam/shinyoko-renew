@@ -66,38 +66,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // デリミタの背景
-$(window).on('scroll', function(){
+document.addEventListener("DOMContentLoaded", function () {
+  const delimiter = document.querySelector(".delimiter");
 
-  var scrollTop = $(window).scrollTop();
-  var bgPosition = scrollTop / 2; //スクロール後のポジションを指定（値を大きくすると移動距離が小さくなる）
+  if (!delimiter) return; // 要素が存在しない場合は処理を中断
 
-  if(bgPosition){
-    $('.delimiter').css('background-position', 'center top -'+ bgPosition + 'px');
+  function updateBackgroundPosition() {
+    const scrollTop = window.scrollY; // スクロール量を取得
+    const bgPosition = scrollTop / 2; // 背景の移動距離を調整
+
+    delimiter.style.backgroundPosition = `center top -${bgPosition}px`;
   }
+
+  window.addEventListener("scroll", updateBackgroundPosition);
 });
 
 
+
 // ページトップに戻るボタン
-$(function(){
-  const topBtn=$('#page_top');
-  topBtn.hide();
-    
-  //ボタンの表示設定
-  $(window).scroll(function(){
-    if($(this).scrollTop()>80){
-      // 画面を80pxスクロールしたら、ボタンを表示する
-      topBtn.fadeIn();
-    }else{
-      // 画面が80pxより上なら、ボタンを表示しない
-      topBtn.fadeOut();
+document.addEventListener("DOMContentLoaded", function () {
+  const topBtn = document.getElementById("toPageTop");
+
+  if (!topBtn) return; // 要素が存在しない場合は処理を中断
+
+  // 初期状態で非表示
+  topBtn.style.opacity = "0";
+  topBtn.style.visibility = "hidden";
+  topBtn.style.transition = "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out";
+
+  function handleScroll() {
+    if (window.scrollY > 80) {
+      topBtn.style.opacity = "1"; // フェードイン
+      topBtn.style.visibility = "visible";
+      topBtn.style.pointerEvents = "auto"; // クリック可能にする
+    } else {
+      topBtn.style.opacity = "0"; // フェードアウト
+      topBtn.style.visibility = "hidden";
+      topBtn.style.pointerEvents = "none"; // クリックできなくする
     }
-  });
-  });
+  }
+
+  window.addEventListener("scroll", handleScroll);
+});
 
 
 
 
-
+// FV メッセージアニメーション
 $(document).ready(function () {
   const $textContainer = $('.text-animate');
   const text = $textContainer.data('text'); 
