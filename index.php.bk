@@ -50,7 +50,8 @@ $message = $_SESSION['formData']['message'] ?? '';
   <link rel="stylesheet" href="./css/common.css" />
   <link rel="stylesheet" href="./css/main.css" />
   <link rel="stylesheet" href="./css/contact.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- jQuery -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   <!-- Google tag (gtag.js) new -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3TMZ3DZJQ"></script>
   <script>
