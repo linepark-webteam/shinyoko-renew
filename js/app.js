@@ -197,39 +197,59 @@ const bios = {
       <a href="#desc" class="col-3"><img class="each-img4 col-12" src="./img/sasagawa2.webp" alt="笹川 政吉"></a>
       <a href="#desc" class="col-3"><img class="each-img5 col-12" src="./img/sasagawa3.webp" alt="笹川 政吉"></a>
     </div>`,
-  "./img/nishikawa1.webp": `
+  "./img/s2.JPEG": `
         <table class="manager-table table table-bordered mt-5">
           <tr><td class="col-3 col-lg-2">会社名</td><td>東京海上あんしんエージェンシー</td></tr>
           <tr><td>役職</td><td>代表</td></tr>
           <tr><td>業種</td><td>生保・損保代理店</td></tr>
           <tr><td>会社PR</td><td>皆様の不安をあんしんに変える為に、日々活動しております。よろしくお願い致します。</td></tr>
         </table>`,
-  "./img/tokuda1.webp": `
+  // "./img/tokuda1.webp": `
+  //   <table class="manager-table table table-bordered mt-5">
+  //     <tr><td class="col-3 col-lg-2">会社名</td><td>トータルビューティーサロン出逢い</td></tr>
+  //     <tr><td>役職</td><td>代表</td></tr>
+  //     <tr><td>業種</td><td>美容・健康</td></tr>
+  //     <tr><td>会社PR</td><td>身体の内側から、外側からも心身経済共に豊かにする美容法、健康法、経営法を伝授！魔法のエステティシャン！</td></tr>
+  //   </table>`,
+  "./img/s3.JPEG": `
     <table class="manager-table table table-bordered mt-5">
-      <tr><td class="col-3 col-lg-2">会社名</td><td>トータルビューティーサロン出逢い</td></tr>
-      <tr><td>役職</td><td>代表</td></tr>
-      <tr><td>業種</td><td>美容・健康</td></tr>
-      <tr><td>会社PR</td><td>身体の内側から、外側からも心身経済共に豊かにする美容法、健康法、経営法を伝授！魔法のエステティシャン！</td></tr>
     </table>`,
-  // 他の画像と略歴も同様に設定
+  "./img/s4.JPEG": `
+    <table class="manager-table table table-bordered mt-5">
+    </table>`,
+  "./img/s5.JPEG": `
+    <table class="manager-table table table-bordered mt-5">
+    </table>`,
 };
 
 const representatives = {
-  "./img/sasagawa2.webp": {
+  "./img/s1.JPEG": {
     repTitle: "代表世話人",
     repName: "笹川 政吉",
   },
-  "./img/sasagawa3.webp": {
-    repTitle: "代表世話人",
-    repName: "笹川 政吉",
-  },
-  "./img/nishikawa1.webp": {
+  // "./img/sasagawa2.webp": {
+  //   repTitle: "代表世話人",
+  //   repName: "笹川 政吉",
+  // },
+  // "./img/sasagawa3.webp": {
+  //   repTitle: "代表世話人",
+  //   repName: "笹川 政吉",
+  // },
+  "./img/s2.JPEG": {
     repTitle: "副代表世話人",
     repName: "西川 毅",
   },
-  "./img/tokuda1.webp": {
+  "./img/s3.JPEG": {
+    repTitle: "副代表世話人",
+    repName: "小林 陽子",
+  },
+  "./img/s4.JPEG": {
     repTitle: "世話人",
-    repName: "徳田 広美",
+    repName: "冨澤 亮二",
+  },
+  "./img/s5.JPEG": {
+    repTitle: "世話人",
+    repName: "西村 慎太郎",
   },
   // 他の画像に対応する代表世話人のデータを追加
 };
