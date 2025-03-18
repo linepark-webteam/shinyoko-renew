@@ -220,6 +220,12 @@ const bios = {
   "./img/s5.JPEG": `
     <table class="manager-table table table-bordered mt-5">
     </table>`,
+  "./img/s6.JPEG": `
+    <table class="manager-table table table-bordered mt-5">
+    </table>`,
+  "./img/s7.JPEG": `
+    <table class="manager-table table table-bordered mt-5">
+    </table>`,
 };
 
 const representatives = {
@@ -250,6 +256,14 @@ const representatives = {
   "./img/s5.JPEG": {
     repTitle: "世話人",
     repName: "西村 慎太郎",
+  },
+  "./img/s6.JPEG": {
+    repTitle: "世話人",
+    repName: "森 穂高",
+  },
+  "./img/s7.JPEG": {
+    repTitle: "世話人",
+    repName: "渡邉 真澄",
   },
   // 他の画像に対応する代表世話人のデータを追加
 };
