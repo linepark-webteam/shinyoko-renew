@@ -51,7 +51,9 @@ $message = $_SESSION['formData']['message'] ?? '';
   <link rel="stylesheet" href="./css/main.css" />
   <link rel="stylesheet" href="./css/contact.css" />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- jQuery -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <!-- Google tag (gtag.js) new -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3TMZ3DZJQ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -69,7 +71,8 @@ $message = $_SESSION['formData']['message'] ?? '';
 
   <header class="header js-header container-fluid">
     <div class="header-wrapper container-fluid px-3 px-lg-5">
-      <a class="header-logo-link" href="#"><img class="header-logo" src="./img/heading-logo.png" alt="守成クラブ新横浜" loading="lazy" /></a>
+      <a class="header-logo-link" href="#"><img class="header-logo" src="./img/heading-logo.png" alt="守成クラブ新横浜"
+          loading="lazy" /></a>
       <!-- <h3 class="manager d-flex justify-content-end align-items-center col-3"><a href="../manager/">世話人紹介</a></h3> -->
     </div>
   </header>
@@ -88,18 +91,12 @@ $message = $_SESSION['formData']['message'] ?? '';
 
     <div class="schedule-group mt-3">
 
-      <div class="application-btn schedule my-3" data-start-date="2025-01-27T00:00:00"
-        data-end-date="2025-03-24T23:59:59">
-        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=8586">
-          <span class="label">第15回 3月24日(月) 例会お申し込みフォーム</span>
-        </a>
-      </div>
-
-      <!-- <div class="application-btn schedule my-3" data-start-date="2025-01-27T00:00:00" data-end-date="2025-04-28T23:59:59">
-        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=＊">
+      <div class="application-btn schedule my-3" data-start-date="2025-03-15T00:00:00"
+        data-end-date="2025-04-28T23:59:59">
+        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=8866">
           <span class="label">第16回 4月28日(月) 例会お申し込みフォーム</span>
         </a>
-      </div> -->
+      </div>
 
   </section>
 
@@ -140,15 +137,10 @@ $message = $_SESSION['formData']['message'] ?? '';
 
             <div class="schedule-group">
 
-              <div class="schedule" data-start-date="2025-01-27T00:00:00" data-end-date="2025-03-24T23:59:59">
-                <h3>第15回例会</h3>
-                <p class="meeting-date">日時:2025年3月24日(月) </p>
-              </div>
-
-              <!-- <div class="schedule" data-start-date="2025-01-27T00:00:00" data-end-date="2025-04-28T23:59:59">
+              <div class="schedule" data-start-date="2025-01-27T00:00:00" data-end-date="2025-04-28T23:59:59">
                 <h3>第16回例会</h3>
                 <p class="meeting-date">日時:2025年4月28日(月) </p>
-              </div> -->
+              </div>
 
             </div>
 
@@ -224,7 +216,7 @@ $message = $_SESSION['formData']['message'] ?? '';
                   <span>　</span>
                   <span id="repName" class="fs-4">笹川 政吉</span>
                 </div>
-                <img id="mainImage" src="./img/sasagawa2.webp" alt="Main Image" class="img-fluid" loading="lazy">
+                <img id="mainImage" src="./img/s1.JPEG" alt="Main Image" class="img-fluid" loading="lazy">
               </div>
             </div>
             <div class="about-intro-table">
@@ -249,8 +241,8 @@ $message = $_SESSION['formData']['message'] ?? '';
                   </tr>
                 </table>
                 <div class="img-container row">
-                  <a href="#desc" class="col-3"><img class="each-img2 col-12" src="./img/sasagawa2.webp" alt="笹川 政吉" loading="lazy"></a>
-                  <a href="#desc" class="col-3"><img class="each-img3 col-12" src="./img/sasagawa3.webp" alt="笹川 政吉" loading="lazy"></a>
+                  <!-- <a href="#desc" class="col-3"><img class="each-img2 col-12" src="./img/sasagawa2.webp" alt="笹川 政吉" loading="lazy"></a> -->
+                  <!-- <a href="#desc" class="col-3"><img class="each-img3 col-12" src="./img/sasagawa3.webp" alt="笹川 政吉" loading="lazy"></a> -->
                 </div>
               </div>
             </div>
@@ -260,26 +252,87 @@ $message = $_SESSION['formData']['message'] ?? '';
             <div class="row">
               <div class="col-12">
                 <div class="d-flex flex-wrap">
-                  <!-- 各thumb要素にmx (X軸マージン) やmy (Y軸マージン) クラスを追加 -->
+
                   <div class="col-3 col-lg-2 mb-3 mx-1">
-                    <a href="#desc" class="thumb mx-1">
+                    <a href="#desc" class="thumb mx-1" data-name="笹川 政吉" data-title="代表世話人" data-img="./img/s1.JPEG"
+                      data-bio='
+                        <table class="manager-table table table-bordered mt-5">
+                          <tr><td class="col-3 col-lg-2">会社名</td><td>国際貿易YMG株式会社</td></tr>
+                          <tr><td>役職</td><td>代表取締役</td></tr>
+                          <tr><td>業種</td><td>貿易業、貿易商社、外国人材紹介、オーダースーツFC本部</td></tr>
+                          <tr><td>会社PR</td><td>貿易輸出入、外国人材紹介、日本語学校運営、オーダースーツ業、やってますのでご相談下さい</td></tr>
+                        </table>'>
                       <p class="manager-text name mb-0">笹川 政吉</p>
-                      <img class="col-12" src="./img/sasagawa2.webp" alt="笹川 政吉" loading="lazy">
+                      <img class="col-12" src="./img/s1.JPEG" alt="笹川 政吉" loading="lazy">
                       <p class="manager-text title mt-1">代表世話人</p>
                     </a>
                   </div>
+
                   <div class="col-3 col-lg-2 mb-3 mx-1">
-                    <a href="#desc" class="thumb mx-1">
+                    <a href="#desc" class="thumb mx-1" data-name="西川 毅" data-title="副代表世話人" data-img="./img/s2.JPEG"
+                      data-bio='
+                        <table class="manager-table table table-bordered mt-5">
+                          <tr><td class="col-3 col-lg-2">会社名</td><td>東京海上あんしんエージェンシー</td></tr>
+                          <tr><td>役職</td><td>代表</td></tr>
+                          <tr><td>業種</td><td>生保・損保代理店</td></tr>
+                          <tr><td>会社PR</td><td>皆様の不安をあんしんに変える為に、日々活動しております。よろしくお願い致します。</td></tr>
+                        </table>'>
                       <p class="manager-text name mb-0">西川 毅</p>
-                      <img class="col-12" src="./img/nishikawa1.webp" alt="西川 毅" loading="lazy">
+                      <img class="col-12" src="./img/s2.JPEG" alt="西川 毅" loading="lazy">
                       <p class="manager-text title mt-1">副代表世話人</p>
                     </a>
                   </div>
-                  <!-- ... 他の要素 ... -->
+
+                  <div class="col-3 col-lg-2 mb-3 mx-1">
+                    <a href="#desc" class="thumb mx-1" data-name="小林 陽子" data-title="副代表世話人" data-img="./img/s3.JPEG"
+                      data-bio='<table class="manager-table table table-bordered mt-5"></table>'>
+                      <p class="manager-text name mb-0">小林 陽子</p>
+                      <img class="col-12" src="./img/s3.JPEG" alt="小林 陽子" loading="lazy">
+                      <p class="manager-text title mt-1">副代表世話人</p>
+                    </a>
+                  </div>
+
+                  <div class="col-3 col-lg-2 mb-3 mx-1">
+                    <a href="#desc" class="thumb mx-1" data-name="冨澤 亮二" data-title="世話人" data-img="./img/s4.JPEG"
+                      data-bio='<table class="manager-table table table-bordered mt-5"></table>'>
+                      <p class="manager-text name mb-0">冨澤 亮二</p>
+                      <img class="col-12" src="./img/s4.JPEG" alt="冨澤 亮二" loading="lazy">
+                      <p class="manager-text title mt-1">世話人</p>
+                    </a>
+                  </div>
+
+                  <div class="col-3 col-lg-2 mb-3 mx-1">
+                    <a href="#desc" class="thumb mx-1" data-name="西村 慎太郎" data-title="世話人" data-img="./img/s5.JPEG"
+                      data-bio='<table class="manager-table table table-bordered mt-5"></table>'>
+                      <p class="manager-text name mb-0">西村 慎太郎</p>
+                      <img class="col-12" src="./img/s5.JPEG" alt="西村 慎太郎" loading="lazy">
+                      <p class="manager-text title mt-1">世話人</p>
+                    </a>
+                  </div>
+
+                  <div class="col-3 col-lg-2 mb-3 mx-1">
+                    <a href="#desc" class="thumb mx-1" data-name="森 穂高" data-title="世話人" data-img="./img/s6.JPEG"
+                      data-bio='<table class="manager-table table table-bordered mt-5"></table>'>
+                      <p class="manager-text name mb-0">森 穂高</p>
+                      <img class="col-12" src="./img/s6.JPEG" alt="森 穂高" loading="lazy">
+                      <p class="manager-text title mt-1">世話人</p>
+                    </a>
+                  </div>
+
+                  <div class="col-3 col-lg-2 mb-3 mx-1">
+                    <a href="#desc" class="thumb mx-1" data-name="渡邉 真澄" data-title="世話人" data-img="./img/s7.JPEG"
+                      data-bio='<table class="manager-table table table-bordered mt-5"></table>'>
+                      <p class="manager-text name mb-0">渡邉 真澄</p>
+                      <img class="col-12" src="./img/s7.JPEG" alt="渡邉 真澄" loading="lazy">
+                      <p class="manager-text title mt-1">世話人</p>
+                    </a>
+                  </div>
+
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -307,17 +360,11 @@ $message = $_SESSION['formData']['message'] ?? '';
   <section class="application container my-5">
     <div class="schedule-group">
 
-      <div class="application-btn schedule" data-start-date="2025-01-27T00:00:00" data-end-date="2025-03-24T23:59:59">
-        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=8586">
-          <span class="label">第15回 3月24日(月) 例会お申し込みフォーム</span>
-        </a>
-      </div>
-
-      <!-- <div class="application-btn schedule" data-start-date="2025-01-27T00:00:00" data-end-date="2025-04-28T23:59:59">
-        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=＊">
+      <div class="application-btn schedule" data-start-date="2025-01-27T00:00:00" data-end-date="2025-04-28T23:59:59">
+        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=8866">
           <span class="label">第16回 4月28日(月) 例会お申し込みフォーム</span>
         </a>
-      </div> -->
+      </div>
 
   </section>
 
@@ -488,7 +535,8 @@ $message = $_SESSION['formData']['message'] ?? '';
           <p>2月</p>
           <div class="image-wrapper">
             <!-- <img class="meeting-image" src="./img/coming-soon.png" alt=""> -->
-            <img class="meeting-image expandable" src="./img/click02.png" alt="2025年2月" loading="lazy" onclick="openModal(this)">
+            <img class="meeting-image expandable" src="./img/click02.png" alt="2025年2月" loading="lazy"
+              onclick="openModal(this)">
             <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
           </div>
         </div>
@@ -682,6 +730,7 @@ $message = $_SESSION['formData']['message'] ?? '';
   <script src="https://kit.fontawesome.com/e7eaec89a2.js" crossorigin="anonymous"></script>
 
   <script src="./js/app.js"></script>
+  <script src="./js/introduction.js"></script>
   <script src="./js/contactform.js"></script>
 </body>
 

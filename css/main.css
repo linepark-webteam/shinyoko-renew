@@ -402,6 +402,10 @@ p {
   font-size: clamp(.7rem, 1vw, 2rem);
 }
 
+.managers-box {
+  display: flex;
+  justify-content: center;
+}
 
 /* 守勢クラブとは */
 .about-whtis-shusei {
