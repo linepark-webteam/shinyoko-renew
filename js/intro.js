@@ -1,18 +1,4 @@
-// ★ 先に関数を定義
-function attachImageContainerListener() {
-    document.querySelectorAll(".img-container img").forEach((img) => {
-      img.addEventListener("click", function () {
-        const newSrc = this.getAttribute("src");
-        const mainImageEl = document.getElementById("mainImage");
-        if (mainImageEl) {
-          mainImageEl.src = newSrc;
-        }
-      });
-    });
-  }
-  
-  // ★ thumbクリックの処理
-  document.querySelectorAll(".thumb").forEach((thumb) => {
+document.querySelectorAll(".thumb").forEach((thumb) => {
     thumb.addEventListener("click", function (e) {
       e.preventDefault();
   
@@ -30,32 +16,30 @@ function attachImageContainerListener() {
   
       if (repTitleEl) repTitleEl.textContent = title + " ";
       if (repNameEl) repNameEl.textContent = name;
-      if (mainImageEl) mainImageEl.src = imgSrc;
+  
+      if (mainImageEl) {
+        // フェードアウト → 画像変更 → フェードイン
+        mainImageEl.classList.add("fade-out");
+        setTimeout(() => {
+          mainImageEl.src = imgSrc;
+          mainImageEl.classList.remove("fade-out");
+        }, 300); // 0.3秒後に切り替え
+      }
   
       const isEmptyBio =
         !bio || /<table[^>]*>\s*<\/table>/.test(bio); // 空テーブル検出
   
       if (isEmptyBio) {
-        // 経歴が空の場合
         if (mainBioEl) mainBioEl.innerHTML = "";
-        if (tableWrapper) {
-          tableWrapper.style.display = "none";
-        }
-        if (imageWrapper) {
-          imageWrapper.style.alignItems = "center";
-        }
+        if (tableWrapper) tableWrapper.classList.add("fade-out"); // テーブル消す
+        if (imageWrapper) imageWrapper.style.alignItems = "center";
       } else {
-        // 経歴がある場合
         if (mainBioEl) {
           mainBioEl.innerHTML = bio;
-          attachImageContainerListener(); // ★ここで関数が定義済みならOK
+          attachImageContainerListener();
         }
-        if (tableWrapper) {
-          tableWrapper.style.removeProperty("display"); // ← ← ← display指定を確実に戻す
-        }
-        if (imageWrapper) {
-          imageWrapper.style.alignItems = "flex-start";
-        }
+        if (tableWrapper) tableWrapper.classList.remove("fade-out"); // テーブル表示
+        if (imageWrapper) imageWrapper.style.alignItems = "flex-start";
       }
     });
   });
