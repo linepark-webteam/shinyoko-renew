@@ -1,3 +1,15 @@
+function attachImageContainerListener() {
+    document.querySelectorAll(".img-container img").forEach((img) => {
+      img.addEventListener("click", function () {
+        const newSrc = this.getAttribute("src");
+        const mainImageEl = document.getElementById("mainImage");
+        if (mainImageEl) {
+          mainImageEl.src = newSrc;
+        }
+      });
+    });
+  }
+
 document.querySelectorAll(".thumb").forEach((thumb) => {
     thumb.addEventListener("click", function (e) {
       e.preventDefault();
