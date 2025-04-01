@@ -404,7 +404,7 @@ p {
 
 .managers-box {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 /* 守勢クラブとは */
