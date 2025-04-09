@@ -1,0 +1,106 @@
+p {
+  margin: 0;
+}
+
+/* ボタンのスタイル */
+.btn {
+  border-radius: 40px;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  font-size: 24px;
+}
+
+.btn-small {
+  border-radius: 1px;
+}
+
+.btn-large {
+  border-radius: 3px;
+}
+
+/* フォントのスタイル */
+:root{
+  --font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+  font-family: var(--font-family-sans-serif);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-sans-serif);
+  font-weight: 600;
+}
+
+
+.bg-twitter {
+  background-color: #55acee;
+  text: #FFF;
+}
+
+.bg-mastodon {
+  background-color: #2b90d9;
+  text: #FFF;
+}
+
+.bg-facebook {
+  background-color: #3b5998;
+  text: #FFF;
+}
+
+.bg-linkedin {
+  background-color: #0079ba;
+  text: #FFF;
+}
+
+.bg-github {
+  background-color: #333;
+  text: #FFF;
+}
+
+.bg-qiita {
+  background-color: #79bd28;
+  text: #FFF;
+}
+
+.bg-misskey {
+  background-color: #00acc1;
+  text: #FFF;
+}
+
+.bg-soundcloud{
+  background-color: #ff3300;
+  text: #FFF;
+}
+
+/* aタグのスタイル */
+a {
+  text-decoration: none;
+  color: #333;
+}
+a:hover {
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #4663b2; /* 背景色 */
+  border-color: #4663b2; /* 枠線の色 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary:hover {
+  background-color: #3a51a0; /* ホバー時の背景色 */
+  border-color: #334d95; /* ホバー時の枠線の色 */
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(70, 99, 178, 0.5); /* フォーカス時のシャドウ */
+}
+
+.btn-primary:disabled {
+  background-color: #4663b2; /* 無効時の背景色 */
+  border-color: #4663b2; /* 無効時の枠線の色 */
+}

@@ -1,0 +1,894 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-family: "Noto Sans JP", "Noto Serif JP", "Roboto", sans-serif;
+}
+
+/* ファーストビュー */
+.fv {
+  height: auto;
+  max-width: 100vw;
+}
+
+.fv-wrap {
+  position: relative;
+  /* 疑似要素とテキストを管理するために relative を追加 */
+  background: url(../img/fv.webp) center top;
+  background-size: cover;
+  height: 80svh;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  /* 縦中央 */
+  justify-content: center;
+  /* 横中央 */
+  text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+  .fv-wrap {
+    background-image: url(../img/fv.webp);
+  }
+}
+
+/* FVのマスク */
+.fv-wrap::after {
+  content: "";
+  background-color: rgba(30, 115, 190, 0.4);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  /* 背景の上・テキストの下に配置 */
+}
+
+.fv-headline {
+  font-family: "Noto Serif JP", sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: bold;
+  z-index: 1;
+  /* マスクより前面に */
+  max-width: 100vw;
+  text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+  .fv-headline {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+}
+
+.character-animate {
+  opacity: 0;
+  display: inline-block;
+  font-size: 2rem;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 光るエフェクト */
+.character-animate.glow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* 守成ロゴ */
+.shusei-logo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.shusei-logo-img {
+  width: 100%;
+  max-width: 300px;
+}
+
+@media screen and (max-width: 960px) {
+  .shusei-logo-img {
+    width: 50vw;
+  }
+}
+
+/* 守成クラブ紹介 */
+.about {
+  max-width: 1920px;
+  /* margin: 0 auto 5vw; */
+  margin: 0 auto;
+}
+
+.about-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delimiter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 背景画像 */
+  width: 100%;
+  height: 350px;
+  background-image: url(../img/yokohama-landmark-crop.webp);
+  background-color: rgba(0, 0, 0, 1);
+  background-blend-mode: lighten;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+  padding: 0;
+}
+
+@media screen and (max-width: 1400px) {
+  .delimiter {
+    background-size: 200%;
+    background-position: center bottom;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .delimiter {
+    height: 200px;
+    background-size: 300%;
+    background-position: center top;
+  }
+}
+
+.section-title {
+  color: #fff;
+  z-index: 100;
+}
+
+.about-list {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: inherit;
+}
+
+.about-list a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+}
+
+@media screen and (min-width: 960px) {
+  .about-list a {
+    font-size: 16px;
+  }
+}
+
+.about-list a:hover {
+  background-color: #ffffff;
+}
+
+.about-list-item {
+  display: flex;
+  background-color: rgba(226, 226, 226, 0.8);
+  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+  width: 20%;
+  height: 80px;
+  cursor: pointer;
+  margin-right: 1vw;
+  border-radius: 2vw 2vw 0 0;
+}
+
+@media screen and (max-width: 600px) {
+  .about-list-item {
+    height: 45px;
+  }
+}
+
+.about-list a:hover {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-contents {
+  background-color: #ffffff;
+  display: none;
+  padding: 2vw;
+  width: 100%;
+}
+
+.is-btn-active {
+  display: flex;
+  background-color: #ffffff;
+  font-weight: bold;
+  padding: 1vw;
+}
+
+.is-contents-active {
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+  .is-contents-active {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.is-contents-active img {
+  max-width: 500px;
+}
+
+@media screen and (max-width: 991px) {
+  .is-contents-active img {
+    max-width: 100%;
+  }
+}
+
+.about-text .meeting-date {
+  font-size: 1.2rem;
+}
+
+/* 例会情報 */
+.about-meeting {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+  .about-meeting {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.meeting-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.meeting-table td {
+  padding: 8px 0;
+  vertical-align: top;
+}
+
+/* 左側のセル（ラベル部分） */
+.meeting-table td:first-child {
+  display: flex;
+  justify-content: flex-start;
+  /* 左寄せ */
+  align-items: center;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* ラベル部分のスタイル */
+.label {
+  display: inline-block;
+  min-width: 80px;
+  /* 適宜調整 */
+  text-align: left;
+}
+
+/* 「：」のスタイル */
+.colon {
+  display: inline-block;
+  min-width: 10px;
+  /* 統一幅 */
+  text-align: right;
+}
+
+/* 場所の詳細（小さな画面では文字を小さく） */
+@media screen and (max-width: 430px) {
+  .meeting-table-place {
+    font-size: 0.8rem;
+  }
+}
+
+/* 代表挨拶 */
+.about-greeting {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+  .about-greeting {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/* 世話人紹介 */
+.about-intro-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 991px) {
+  .about-intro-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.about-intro-images {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: auto;
+}
+
+.about-intro-images.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+@media screen and (max-width: 991px) {
+  .about-intro-images {
+    align-items: center;
+  }
+}
+
+.about-intro-table {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: auto;
+}
+
+.about-intro-table.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  /* heightやvisibilityなども必要なら追加可能 */
+}
+
+#mainImage {
+  max-width: 500px;
+  height: auto;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+#mainImage.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 1199px) {
+  #mainImage {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #mainImage {
+    max-width: 100%;
+  }
+}
+.centered-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.manager-table {
+  font-size: clamp(.7rem, 1vw, 2rem);
+}
+
+.manager-text {
+  font-size: clamp(.7rem, 1vw, 2rem);
+}
+
+.managers-box {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* 守勢クラブとは */
+.about-whtis-shusei {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+  .about-whtis-shusei {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.about-text {
+  margin-left: 30px;
+}
+
+.about-text h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.about-text h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.about-text p {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 991px) {
+  .about-text {
+    margin-left: 0;
+  }
+
+  .about-text h2 {
+    font-size: calc(22px + 2 * ((100vw - 320px) / 640));
+  }
+
+  .about-text h3 {
+    font-size: calc(18px + 2 * ((100vw - 320px) / 640));
+  }
+
+  .about-text p {
+    font-size: calc(14px + 6 * ((100vw - 320px) / 640));
+  }
+}
+
+/* 会場情報 */
+.venue-head-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.venue-head {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 991px) {
+  .venue-head {
+    font-size: calc(18px + 4 * ((100vw - 320px) / 640));
+  }
+}
+
+.venue-contents {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.venue-desc-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 40%;
+}
+
+.venue-img-wrapper {
+  width: 60%;
+}
+
+.venue-desc {
+  font-size: 1.2rem;
+}
+
+.venue-img {
+  width: 100%;
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 991px) {
+  .venue-contents {
+    flex-direction: column-reverse;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .venue-desc-wrapper {
+    width: 100%;
+  }
+
+  .venue-desc {
+    font-size: 1rem;
+  }
+
+  .venue-img-wrapper {
+    width: 100%;
+  }
+}
+
+/* 会場アクセス */
+.access-head-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.access-head {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 991px) {
+  .access-head {
+    font-size: calc(18px + 4 * ((100vw - 320px) / 640));
+  }
+}
+
+.access-contents {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.access-desc-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 40%;
+}
+
+@media screen and (max-width: 1399px) {
+  .access-desc-wrapper {
+    width: 45%;
+  }
+}
+
+.access-img-wrapper {
+  width: 60%;
+}
+
+.access-desc {
+  font-size: 1rem;
+}
+
+.access-img {
+  width: 100%;
+}
+
+.access-google-map {
+  border-radius: 25px;
+  width: 600px;
+  height: 600px;
+}
+
+@media screen and (max-width: 1399px) {
+  .access-google-map {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .access-contents {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .access-desc-wrapper {
+    width: 100%;
+  }
+
+  .access-desc {
+    font-size: 0.8rem;
+  }
+
+  .access-img-wrapper {
+    width: 100%;
+  }
+
+  .access-google-map {
+    width: 100%;
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .access-google-map {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+/* 年間スケジュール */
+.annual-schedule-head {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 991px) {
+  .annual-schedule-head {
+    font-size: calc(18px + 4 * ((100vw - 320px) / 640));
+  }
+}
+
+.annual-schedule-table-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.annual-schedule-table {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+.annual-schedule-table-th-row {
+  background-color: #1e73be;
+  color: #fff;
+  text-align: center;
+}
+
+.annual-schedule-table-tbody-row {
+  text-align: center;
+}
+
+.annual-schedule-table-tbody-row:nth-child(odd) {
+  background-color: #ffffff;
+  /* 白 */
+}
+
+.annual-schedule-table-tbody-row:nth-child(even) {
+  background-color: #e6f2ff;
+  /* 薄いブルー */
+}
+
+.annual-schedule-table th,
+.annual-schedule-table td {
+  border-bottom: 1px solid #4663b2;
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 500px) {
+  .annual-schedule-table {
+    width: 100%;
+  }
+
+  .annual-schedule-table th,
+  .annual-schedule-table td {
+    font-size: 0.8rem;
+  }
+}
+
+/* 例会風景 */
+.meeting-images-head-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.meeting-images-head {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 991px) {
+  .meeting-images-head {
+    font-size: calc(18px + 4 * ((100vw - 320px) / 640));
+  }
+}
+
+.meeting-images-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* 各行のスタイル */
+.meeting-images-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* 各月の画像ブロック */
+.meeting-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: calc(25% - 20px);
+  /* ｛4等分(25%)‐gap分(20px)｝で調整 */
+}
+
+/* 768px以下では3列 */
+@media screen and (max-width: 768px) {
+  .meeting-item {
+    width: calc(33.33% - 20px);
+  }
+}
+
+.image-wrapper {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 10px;
+  height: auto;
+  overflow: hidden;
+  /* 画像の拡大部分がはみ出さないようにする */
+  position: relative;
+  /* 画像の位置調整のため */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 画像スタイル */
+.meeting-image {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* meeting-image + expandable の両方のクラスを持つ要素のみ以下のスタイルを適用 */
+.meeting-image.expandable:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* 拡大アイコン */
+.zoom-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  font-size: 16px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* ホバー時やタップ時にアイコンを少し透明に */
+.image-wrapper:hover .zoom-icon {
+  opacity: 0.5;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+/* 全画像を重ねて非表示 */
+.slideshow .meeting-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 表示画像のみフェードイン＋スライドイン */
+.slideshow .meeting-image.active {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 1;
+  pointer-events: auto;
+}
+
+
+/* モーダルのスタイル */
+.modal {
+  /* 初期状態は非表示 */
+  display: none;
+  /* modalが展開された後(JSで「display: flex;」適用後) */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+}
+
+/* モーダル内の画像 */
+.modal-content {
+  max-width: 60%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  /* margin-bottom: 10px; */
+}
+
+@media screen and (max-width: 991px) {
+  .modal-content {
+    max-width: 90%;
+  }
+}
+
+/* モーダル 閉じるボタン */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* モーダル キャプションのスタイル */
+#caption {
+  text-align: center;
+  color: #ffffff;
+  font-size: 20px;
+  /* margin-top: 10px; */
+}
+
+/* 「前へ」「次へ」ボタンのデザイン */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+/* 左右のボタンの位置 */
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* ホバー時の透明度調整 */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (max-width: 991px) {
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    padding: 3px 5px;
+  }
+  
+  /* 左右のボタンの位置 */
+  .prev { left: 0; }
+  .next { right: 0; }
+}
