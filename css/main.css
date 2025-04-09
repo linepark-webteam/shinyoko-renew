@@ -704,7 +704,7 @@ p {
 .meeting-images-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
   width: 100%;
   max-width: 1200px;
