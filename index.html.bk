@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="守成クラブ新横浜会場！守成クラブは、中小企業の経営者による異業種商談会を運営している全国組織の会です。" />
+  <meta property="og:site_name" content="守成クラブ新横浜会場" />
+  <meta property="og:url" content="https://shinyoko-shusei.online/" />
+  <meta property="og:title" content="守成クラブ新横浜会場" />
+  <meta property="og:description" content="守成クラブ新横浜会場！守成クラブは、中小企業の経営者による異業種商談会を運営している全国組織の会です。" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:description" content="守成クラブ新横浜会場！守成クラブは、中小企業の経営者による異業種商談会を運営している全国組織の会です。">
+  <meta name="twitter:title" content="守成クラブ新横浜会場">
+  <meta name="twitter:url" content="https://shinyoko-shusei.online">
+  <meta name="twitter:domain" content="shinyoko-shusei.com">
+  <title>守成クラブ｜新横浜会場</title>
+  <link rel="icon" href="./img/logo.png" sizes="32x32" />
+  <link rel="icon" href="./img/logo.png" sizes="192x192" />
+
+  <link rel="stylesheet" href="./css/ress.css" />
+
+  <!-- CSS BootStrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/my-bootstrap.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/toPagetop.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<!-- Google tag (gtag.js) new -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3TMZ3DZJQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z3TMZ3DZJQ');
+</script>
+
+<body>
+
+  <header class="header row js-header container-fluid">
+    <div class="d-flex justify-content-between px-3 px-lg-5">
+      <div class="d-flex align-items-center">
+        <h1 class="logo"><a href="#"><img class="col-2 col-md-4" src="./img/heading-logo.webp" alt="守成クラブ新横浜" /></a>
+        </h1>
+      </div>
+      <!-- <h3 class="manager d-flex justify-content-end align-items-center col-3"><a href="../manager/">世話人紹介</a></h3> -->
+    </div>
+  </header>
+
+  <!-- FV -->
+  <section class="fv js-mv slider">
+    <div class="container-fruid">
+      <div class="col-12 img-wrap">
+        <p class="fv-headline col-12">新横浜の例会が始まる！</p>
+        <!-- <p class="fv-text">横浜では11会場目、関東では守成クラブ初となる「あさ」の会場です。</p> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="application container">
+    <h2>例会申し込みフォーム</h2>
+
+    <div class="schedule-group">
+
+      <div class="application-btn schedule" data-start-date="2025-04-23T00:00:00" data-end-date="2025-05-26T23:59:59">
+        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=8885" target="_blank">
+          <span class="label">第17回 5月26日(月) 例会お申し込みフォーム</span>
+        </a>
+      </div>
+
+      <div class="application-btn schedule" data-start-date="2025-04-23T00:00:00" data-end-date="2025-06-23T23:59:59">
+        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=9160" target="_blank">
+          <span class="label">第18回 6月23日(月) 例会お申し込みフォーム</span>
+        </a>
+      </div>
+
+  </section>
+
+  <!-- 守成ロゴ -->
+  <section class="shusei-logo">
+    <div class="shusei-logo-wrap container row d-flex justify-content-center">
+      <div class="shusei-logo-img d-flex justify-content-center col-lg-4">
+        <img src="./img/slider_logo.png" alt="守成クラブ">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CONTENTS -->
+  <section class="about">
+    <div class="about-wrap">
+      <div class="delimiter container-fluid">
+        <div class="section-title">
+          <h2>Contents</h2>
+        </div>
+        <!-- タブメニューを構成するブロック -->
+        <div class="about-list">
+          <a class="about-list-item is-btn-active">例会情報</a>
+          <a class="about-list-item">代表あいさつ</a>
+          <a class="about-list-item">世話人紹介</a>
+          <a class="about-list-item">守成クラブとは</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- コンテンツブロック -->
+    <div class="about-contents-wrap container">
+      <div class="about-contents row is-contents-active">
+        <div class="d-flex justify-content-center flex-column flex-lg-row col-lg-12 mb-5">
+          <div class="about-img">
+            <img class="col-12 mb-3" src="./img/meeting4.webp" alt="例会時の写真">
+          </div>
+          <div class="about-text">
+            <h2>例会情報</h2>
+
+            <div class="schedule-group">
+              
+              <div class="schedule" data-start-date="2025-04-23T00:00:00" data-end-date="2025-05-26T23:59:59">
+                <h3>第17回例会</h3>
+                <p>日時:2025年5月26日(月) </p>
+              </div>
+
+              <div class="schedule" data-start-date="2025-04-23T00:00:00" data-end-date="2025-06-23T23:59:59">
+                <h3>第18回例会</h3>
+                <p>日時:2025年6月23日(月) </p>
+              </div>
+
+            </div>
+
+            <p>受付開始 17:00<br>
+              ゲスト説明 17:30～ (ゲスト様は17:15までにお越しください) <br>
+              開始時間 : 18:00 <br>
+              終了時間 : 21:00</p>
+            <p>例会費用:6,000円(食事付き)<br><br>
+              場所: 〒222-0033 神奈川県横浜市港北区新横浜3-18-8 <br>
+              　　　アルカンシエル横浜</p>
+            <br><br>
+          </div>
+        </div>
+      </div>
+      <div class="about-contents">
+
+        <div class="d-block">
+          <div class="d-flex flex-column flex-lg-row mb-5">
+            <div class="about-img">
+              <img class="col-12 mb-3" src="./img/sasagawa2.webp" alt="笹川代表">
+            </div>
+            <div>
+              <div class="about-text">
+                <h2>代表あいさつ</h2>
+                <h3>代表世話人　笹川 政吉</h3>
+                <p>
+                  皆様こんにちは。2024 年 1 月 22 日に神奈川県で 12 番目の会場、<br>
+                  「新横浜会場」を立ち上げる運びとなりました。<br>
+                  2021 年はコロナ渦の中、例会は時短になり、<br>
+                  懇親会もなくなり、なかなかビジネスにつながらなかったことも多かったと思います。<br>
+                  新型コロナウイルスの感染拡大が収まり、世の中はまた新たな秩序を求めて動き出しコロナと共存する時代が長く続くと考えられます。<br>
+                  新横浜会場は、新しい時代に向けて、皆様のビジネスを拡大できるチャンスある会場の一つとして 皆様にご活用いただければと思います。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-contents">
+        <div class="container mt-4">
+          <div class="row mb-4">
+            <div id="desc" class="pt-3 py-lg-5"></div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mt-3">
+                  <span id="repTitle">代表世話人</span>
+                  <span id="repName">笹川 政吉</span>
+                </div>
+                <img id="mainImage" src="./img/sasagawa2.webp" alt="Main Image" class="img-fluid">
+              </div>
+              <div class="col-md-6">
+                <div id="mainBio">
+                  <table class="manager-table row table table-bordered mt-5">
+                    <tr>
+                      <td class="col-3 col-lg-2">会社名</td>
+                      <td>国際貿易YMG株式会社</td>
+                    </tr>
+                    <tr>
+                      <td>役職</td>
+                      <td>代表取締役</td>
+                    </tr>
+                    <tr>
+                      <td>業種</td>
+                      <td>貿易業、貿易商社、外国人材紹介、オーダースーツFC本部</td>
+                    </tr>
+                    <tr>
+                      <td>会社PR</td>
+                      <td>貿易輸出入、外国人材紹介、日本語学校運営、オーダースーツ業、やってますのでご相談下さい</td>
+                    </tr>
+                  </table>
+                  <div class="img-container row">
+                    <a href="#desc" class="col-3"><img class="each-img2 col-12" src="./img/sasagawa2.webp"
+                        alt="笹川 政吉"></a>
+                    <a href="#desc" class="col-3"><img class="each-img3 col-12" src="./img/sasagawa3.webp"
+                        alt="笹川 政吉"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="d-flex flex-wrap">
+                  <!-- 各thumb要素にmx (X軸マージン) やmy (Y軸マージン) クラスを追加 -->
+                  <div class="col-3 col-lg-2 mb-3 mx-1">
+                    <a href="#desc" class="thumb mx-1">
+                      <p class="manager-text name mb-0">笹川 政吉</p>
+                      <img class="col-12" src="./img/sasagawa2.webp" alt="笹川 政吉">
+                      <p class="manager-text title mt-1">代表世話人</p>
+                    </a>
+                  </div>
+                  <div class="col-3 col-lg-2 mb-3 mx-1">
+                    <a href="#desc" class="thumb mx-1">
+                      <p class="manager-text name mb-0">西川 毅</p>
+                      <img class="col-12" src="./img/nishikawa1.webp" alt="西川 毅">
+                      <p class="manager-text title mt-1">副代表世話人</p>
+                    </a>
+                  </div>
+                  <!-- ... 他の要素 ... -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-contents">
+        <div class="d-flex justify-content-center flex-column flex-lg-row mb-5">
+          <div class="about-img">
+            <img class="col-12 mb-3" src="./img/group-photo3.webp" alt="守成クラブ集合写真">
+          </div>
+          <div class="about-text">
+            <h2>守成クラブとは</h2>
+            <h3>守成クラブは、中小企業経営者かそれに準ずる方によって構成される、会員制の商談会！</h3>
+            <p>2002年4月、日本商工振興会を運営母体に、守成クラブ創設者 伊藤小一他17名で、<br>
+              札幌からスタートしました。<br>
+              現在は全国に271を超える会場が存在、会員数は約30,000社を超えます。</p>
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+  <!-- 例会申し込みボタン -->
+  <section class="application container">
+    <div class="schedule-group">
+
+      <div class="application-btn schedule" data-start-date="2025-04-23T00:00:00" data-end-date="2025-05-26T23:59:59">
+        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=8885" target="_blank">
+          <span class="label">第17回 5月26日(月) 例会お申し込みフォーム</span>
+        </a>
+      </div>
+
+      <div class="application-btn schedule" data-start-date="2025-04-23T00:00:00" data-end-date="2025-06-23T23:59:59">
+        <a href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=9160" target="_blank">
+          <span class="label">第18回 6月23日(月) 例会お申し込みフォーム</span>
+        </a>
+      </div>
+
+  </section>
+
+  <!-- Access -->
+  <section class="access">
+    <div class="container">
+      <div class="access-headline">
+        <h2>会場情報</h2>
+      </div>
+      <div class="access-head">
+        <div class="access-img-name">
+          <p>アルカンシエル横浜</p>
+        </div>
+        <div class="access-img">
+          <img src="./img/image.webp" alt="会場写真">
+        </div>
+      </div>
+      <div class="access-desc">
+        <h3>Access</h3>
+        <div class="access-desc-items">
+          <div class="access-desc-map">
+            <a href="./img/map.webp" target="_blank">
+              <img class="col-12" src="./img/map.webp" alt="アクセスマップ">
+            </a>
+          </div>
+          <div class="access-desc-address">
+            <p>〒222-0033 神奈川県横浜市港北区新横浜3-18-8</p>
+            <p>TEL: 045-475-5670</p>
+          </div>
+          <div class="google-map-box">
+            <div class="google-map">
+              <a href="https://maps.app.goo.gl/MbTm1jX8sPWEJ4Ht7">
+                <div style="width: 100%;">
+                  GoogleMap
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- お問い合わせ -->
+  <section class="contact">
+    <div class="container">
+      <div class="contact-headline">
+        <h2>お問い合わせ</h2>
+      </div>
+
+      <form id="contact-form" action="confirm.php" method="post">
+        <div class="form-group">
+          <label for="memberType">会員区分:　<span class="any">任意</span></label>
+          <select id="memberType" name="memberType">
+            <option class="default" value="">--選択してください--</option>
+            <option value="正会員【ゴールドバッチ】">正会員【ゴールドバッチ】</option>
+            <option value="正会員【赤バッチ】">正会員【赤バッチ】</option>
+            <option value="準会員【緑バッチ】">準会員【緑バッチ】</option>
+            <option value="非会員">非会員</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="registrationLocation">登録会場:　<span class="any">任意</span></label>
+          <input type="text" id="registrationLocation" name="registrationLocation">
+        </div>
+        <div class="form-group">
+          <label for="companyName">会社名:　<span class="any">任意</span></label>
+          <input type="text" id="companyName" name="companyName">
+        </div>
+        <div class="form-group">
+          <label for="name">お名前:　<span class="required">必須</span></label>
+          <input type="text" id="name" name="name" required>
+          <label for="kana">ふりがな:　<span class="required">必須</span></label>
+          <input type="text" id="kana" name="kana" required>
+        </div>
+        <div class="form-group">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:　<span class="required">必須</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">連絡先:　<span class="required">必須</span></label>
+          <input type="text" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="message">お問い合わせ内容:　<span class="required">必須</span></label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="submit-button mt-5">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary col-6 px-4 py-3"><span
+                class="fs-lg-6 fs-6 fw-bold">確認画面へ</span></button>
+          </div>
+        </div>
+    </div>
+    </form>
+    <div id="form-result"></div>
+    </div>
+  </section>
+
+  <!-- toTOP button -->
+  <div class="container-fruid">
+    <a href="#" id="page_top"></a>
+  </div>
+
+  <footer class="container-fluid">
+    <div class="footer-items">
+      <div class="row">
+        <div class="footer-logo d-flex justify-content-center">
+          <div class="col-3"></div>
+          <a href="#"><img class="col-12" src="./img/logo.jpg" alt="守成クラブ新横浜" /></a>
+          <div class="col-3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © 2023守成クラブ新横浜会場</p>
+    </div>
+  </footer>
+  <script src="./js/app.js"></script>
+  <script src="https://kit.fontawesome.com/e7eaec89a2.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

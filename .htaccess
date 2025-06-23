@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.shinyoko-shusei\.com$ [NC]
+RewriteRule ^(.*)$ https://shinyoko-shusei.com/$1 [L,R=301]
