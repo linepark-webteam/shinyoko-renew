@@ -3,58 +3,106 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require './vendor/autoload.php';
-require './secret/config.php'; // 設定ファイルを読み込む
+require './secret/config.php';
 
-if ($_POST) {
-    // 入力値のサニタイズ
-    $memberType = htmlspecialchars($_POST['memberType'], ENT_QUOTES, 'UTF-8');
-    $registrationLocation = htmlspecialchars($_POST['registrationLocation'], ENT_QUOTES, 'UTF-8');
-    $companyName = htmlspecialchars($_POST['companyName'], ENT_QUOTES, 'UTF-8');
-    $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
-    $kana = htmlspecialchars($_POST['kana'], ENT_QUOTES, 'UTF-8');
-    $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
-    $phone = htmlspecialchars($_POST['phone'], ENT_QUOTES, 'UTF-8');
-    $message = htmlspecialchars($_POST['message'], ENT_QUOTES, 'UTF-8');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // 生値を取得（ここでは htmlspecialchars しない）
+    $memberType           = $_POST['memberType'] ?? '';
+    $registrationLocation = $_POST['registrationLocation'] ?? '';
+    $companyName          = $_POST['companyName'] ?? '';
+    $name                 = $_POST['name'] ?? '';
+    $kana                 = $_POST['kana'] ?? '';
+    $email                = $_POST['email'] ?? '';
+    $phone                = $_POST['phone'] ?? '';
+    $message              = $_POST['message'] ?? '';
 
-    $content = "会員区分: $memberType\n登録会場: $registrationLocation\n会社名: $companyName\n名前: $name\nふりがな: $kana\nEmail: $email\n連絡先: $phone\nお問い合わせ内容: $message";
+    // 最低限のバリデーション
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        exit('メールアドレスの形式が正しくありません。');
+    }
+
+    // テキスト版（AltBody 用）：改行はそのまま
+    $contentText =
+        "会員区分: {$memberType}\n".
+        "登録会場: {$registrationLocation}\n".
+        "会社名: {$companyName}\n".
+        "名前: {$name}\n".
+        "ふりがな: {$kana}\n".
+        "Email: {$email}\n".
+        "連絡先: {$phone}\n".
+        "お問い合わせ内容:\n{$message}";
+
+    // HTML版（Body 用）：この瞬間だけエスケープ＋改行を <br> に
+    $e = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8');
+    $row = function($label, $value) use ($e) {
+        return "<dt>{$e($label)}</dt><dd>".nl2br($e($value))."</dd>";
+    };
+    $contentHtml =
+        "<p>新横浜会場HPお問い合わせフォームより、以下の内容でお問い合わせを受け付けました。</p>".
+        "<dl>".
+            $row('会員区分', $memberType).
+            $row('登録会場', $registrationLocation).
+            $row('会社名', $companyName).
+            $row('名前', $name).
+            $row('ふりがな', $kana).
+            $row('Email', $email).
+            $row('連絡先', $phone).
+            $row('お問い合わせ内容', $message).
+        "</dl>";
 
     $mail = new PHPMailer(true);
-    $mail->CharSet = 'UTF-8';
+    $mail->CharSet  = 'UTF-8';
+    // 必要に応じて有効化（日本語環境で文字化け回避に有効な場合あり）
+    // $mail->Encoding = 'base64';
 
     try {
-        //Server settings
-        $mail->isSMTP(); // SMTPを使用する
-        $mail->Host = SMTP_HOST; // config.phpからSMTPホストを読み込む
-        $mail->SMTPAuth = true; // SMTP authentication を有効化
-        $mail->Username = SMTP_USER; // config.phpからSMTPユーザー名を読み込む
-        $mail->Password = SMTP_PASSWORD; // config.phpからSMTPパスワードを読み込む
+        // SMTP 設定
+        $mail->isSMTP();
+        $mail->Host       = SMTP_HOST;
+        $mail->SMTPAuth   = true;
+        $mail->Username   = SMTP_USER;
+        $mail->Password   = SMTP_PASSWORD;
         $mail->SMTPSecure = SMTP_SECURE;
-        $mail->Port = SMTP_PORT; // config.phpからポート番号を読み込む
+        $mail->Port       = SMTP_PORT;
 
-
-        // ユーザーへの確認メール設定
+        // --- ユーザー宛 ---
         $mail->setFrom('noreply@shinyoko-shusei.com', '守成クラブ新横浜｜お問い合わせサポート');
-        $mail->addAddress($email, $name); // ユーザーのメールアドレスを設定
+        $mail->addAddress($email, $name);
 
-        // メールの内容
-        $mail->isHTML(true); // HTMLメールを設定
+        $mail->isHTML(true);
         $mail->Subject = 'お問い合わせありがとうございます';
-        $mail->Body    = nl2br("新横浜会場HPお問い合わせフォームより、\n以下の内容でお問い合わせを受け付けました。\n\n" . $content); // HTML形式の本文
+        $mail->Body    = $contentHtml;
+        $mail->AltBody = "新横浜会場HPお問い合わせフォームより、以下の内容でお問い合わせを受け付けました。\n\n".$contentText;
 
-        $mail->send(); // ユーザーへメール送信
+        $mail->send();
 
-        // 管理者への通知メール
-        $mail->clearAddresses(); // アドレスをクリア
+        // --- 管理者宛 ---
+        $mail->clearAllRecipients(); // 受信者系を全クリア
         $mail->setFrom('noreply@shinyoko-shusei.com', '守成クラブ新横浜HP運営');
-        $mail->addAddress('ywg.japan@gmail.com'); // 管理者のメールアドレス
-        $mail->addBCC('gapsmilegeek@gmail.com'); // BCC で追加する管理者のメールアドレス
-        $mail->Subject = '新横浜会場HPより、新しいお問い合わせがありました';
-        $mail->Body    = nl2br("新横浜会場HPお問い合わせフォームより、\n新しいお問い合わせを以下の内容で受け付けました。\n\n" . $content);
-        $mail->send(); // 管理者へメール送信
+        $mail->addAddress('ywg.japan@gmail.com');
+        $mail->addBCC('gapsmilegeek@gmail.com');
+        $mail->addReplyTo($email, $name); // 返信でユーザーに返せるように
 
-        header('Location: thanks.php'); // 送信後にサンクスページへリダイレクト
+        $mail->Subject = '新横浜会場HPより、新しいお問い合わせがありました';
+        $mail->Body    =
+            "<p>新横浜会場HPお問い合わせフォームより、以下の内容で新規お問い合わせを受け付けました。</p>".
+            "<dl>".
+                $row('会員区分', $memberType).
+                $row('登録会場', $registrationLocation).
+                $row('会社名', $companyName).
+                $row('名前', $name).
+                $row('ふりがな', $kana).
+                $row('Email', $email).
+                $row('連絡先', $phone).
+                $row('お問い合わせ内容', $message).
+            "</dl>";
+        $mail->AltBody = "新横浜会場HPより、新しいお問い合わせがありました。\n\n".$contentText;
+
+        $mail->send();
+
+        header('Location: thanks.php');
+        exit;
     } catch (Exception $e) {
         echo "申し訳ありませんが、メッセージを送信できませんでした: " . $mail->ErrorInfo;
     }
 }
-?>
