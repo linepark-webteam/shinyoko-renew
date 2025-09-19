@@ -800,15 +800,16 @@ p {
   overflow: hidden;
 }
 
-/* 全画像を重ねて非表示 */
+/* 全画像を枠いっぱいにフィットさせる（縦横比は保持しつつトリミング） */
 .slideshow .meeting-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateX(20px);   /* ← X軸で統一 */
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
   z-index: 0;
   pointer-events: none;
@@ -817,7 +818,7 @@ p {
 /* 表示画像のみフェードイン＋スライドイン */
 .slideshow .meeting-image.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0); /* ← X軸で統一 */
   z-index: 1;
   pointer-events: auto;
 }
