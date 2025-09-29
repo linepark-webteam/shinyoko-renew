@@ -51,24 +51,96 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // =======================
-// タブメニュー
+// タブメニュー（WAI-ARIA & キーボード操作対応）
 // =======================
 document.addEventListener("DOMContentLoaded", function () {
-  const tabItems = document.querySelectorAll(".about-list-item");
-  const tabContents = document.querySelectorAll(".about-contents");
-  if (!tabItems.length || !tabContents.length) return;
+  const tablist = document.querySelector('.about-list[role="tablist"]');
+  if (!tablist) return;
 
-  tabItems.forEach((item, index) => {
-    item.addEventListener("click", function () {
-      tabItems.forEach((tab) => tab.classList.remove("is-btn-active"));
-      this.classList.add("is-btn-active");
+  const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+  const panels = Array.from(
+    document.querySelectorAll('.about-contents[role="tabpanel"]')
+  );
 
-      tabContents.forEach((content) =>
-        content.classList.remove("is-contents-active")
-      );
-      tabContents[index].classList.add("is-contents-active");
+  function activateTab(tab, { setFocus = true } = {}) {
+    // すべてのタブを未選択に
+    tabs.forEach((t) => {
+      t.setAttribute("aria-selected", "false");
+      t.setAttribute("tabindex", "-1");
+      t.classList.remove("is-btn-active");
     });
+
+    // すべてのパネルを非表示に
+    panels.forEach((p) => {
+      p.hidden = true;
+      p.classList.remove("is-contents-active");
+    });
+
+    // 選択タブ
+    tab.setAttribute("aria-selected", "true");
+    tab.setAttribute("tabindex", "0");
+    tab.classList.add("is-btn-active");
+
+    // ひも付くパネルを表示
+    const panelId = tab.getAttribute("aria-controls");
+    const panel = document.getElementById(panelId);
+    if (panel) {
+      panel.hidden = false;
+      panel.classList.add("is-contents-active");
+    }
+
+    if (setFocus) tab.focus();
+  }
+
+  // クリックで切替
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => activateTab(tab));
   });
+
+  // キーボード操作（左右/ホーム/エンド/スペース/エンター）
+  tablist.addEventListener("keydown", (e) => {
+    const currentIndex = tabs.indexOf(document.activeElement);
+    if (currentIndex === -1) return;
+
+    let nextIndex = null;
+
+    switch (e.key) {
+      case "ArrowRight":
+      case "Right":
+        nextIndex = (currentIndex + 1) % tabs.length;
+        e.preventDefault();
+        break;
+      case "ArrowLeft":
+      case "Left":
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+        e.preventDefault();
+        break;
+      case "Home":
+        nextIndex = 0;
+        e.preventDefault();
+        break;
+      case "End":
+        nextIndex = tabs.length - 1;
+        e.preventDefault();
+        break;
+      case "Enter":
+      case " ":
+        activateTab(tabs[currentIndex], { setFocus: true });
+        e.preventDefault();
+        return;
+      default:
+        return;
+    }
+
+    if (nextIndex != null) {
+      // フォーカス先を移しつつ即時アクティブ化
+      activateTab(tabs[nextIndex], { setFocus: true });
+    }
+  });
+
+  // 初期表示（HTML側で設定済みだが念のため同期）
+  const initiallySelected = tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0];
+  if (initiallySelected) activateTab(initiallySelected, { setFocus: false });
 });
 
 // =======================

@@ -14,6 +14,23 @@ p {
   font-family: "Noto Sans JP", "Noto Serif JP", "Roboto", sans-serif;
 }
 
+/* 視覚的に非表示 */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.container-fluid {
+  padding-inline: 0;
+}
+
 /* ファーストビュー */
 .fv {
   height: auto;
@@ -92,6 +109,7 @@ p {
 .shusei-logo-img {
   width: 100%;
   max-width: 300px;
+  height: auto;
 }
 
 @media screen and (max-width: 960px) {
@@ -137,7 +155,6 @@ p {
   }
 }
 
-
 @media screen and (max-width: 600px) {
   .delimiter {
     height: 200px;
@@ -163,28 +180,11 @@ p {
   height: inherit;
 }
 
-.about-list a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2vw;
-}
-
-@media screen and (min-width: 960px) {
-  .about-list a {
-    font-size: 16px;
-  }
-}
-
-.about-list a:hover {
-  background-color: #ffffff;
-}
-
 .about-list-item {
   display: flex;
   background-color: rgba(226, 226, 226, 0.8);
+  justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 20px 0;
   width: 20%;
   height: 80px;
@@ -199,11 +199,11 @@ p {
   }
 }
 
-.about-list a:hover {
+.about-list .about-list-item:hover {
   background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+.about-list .about-list-item {
+  border: 0;
 }
 
 .about-contents {
@@ -236,6 +236,7 @@ p {
 
 .is-contents-active img {
   max-width: 500px;
+  height: auto;
 }
 
 @media screen and (max-width: 991px) {
@@ -317,7 +318,6 @@ p {
   }
 }
 
-
 /* 世話人紹介 */
 .about-intro-wrapper {
   display: flex;
@@ -346,7 +346,6 @@ p {
   pointer-events: none;
 }
 
-
 @media screen and (max-width: 991px) {
   .about-intro-images {
     align-items: center;
@@ -364,7 +363,6 @@ p {
   pointer-events: none;
   /* heightやvisibilityなども必要なら追加可能 */
 }
-
 
 #mainImage {
   max-width: 500px;
@@ -397,13 +395,13 @@ p {
 
 /* ① テーブル全体を親幅いっぱいに */
 .manager-table {
-  font-size: clamp(.7rem, 1vw, 2rem);
+  font-size: clamp(0.7rem, 1vw, 2rem);
   width: 100%;
   table-layout: fixed; /* カラム幅を固定レイアウトに */
 }
 @media screen and (min-width: 992px) {
   .manager-table {
-    font-size: clamp(.7rem, 1vw, 2rem);
+    font-size: clamp(0.7rem, 1vw, 2rem);
     width: 80%;
     margin-left: 100px;
     table-layout: fixed; /* カラム幅を固定レイアウトに */
@@ -420,7 +418,7 @@ p {
 }
 
 .manager-text {
-  font-size: clamp(.7rem, 1vw, 2rem);
+  font-size: clamp(0.7rem, 1vw, 2rem);
 }
 
 .managers-box {
@@ -519,6 +517,7 @@ p {
 
 .venue-img {
   width: 100%;
+  height: auto;
   border-radius: 25px;
 }
 
@@ -768,7 +767,6 @@ p {
   border-radius: 10px;
 }
 
-
 /* 画像スタイル */
 .meeting-image {
   width: 100%;
@@ -818,7 +816,7 @@ p {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: translateX(20px);   /* ← X軸で統一 */
+  transform: translateX(20px); /* ← X軸で統一 */
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
   z-index: 0;
   pointer-events: none;
@@ -831,7 +829,6 @@ p {
   z-index: 1;
   pointer-events: auto;
 }
-
 
 /* モーダルのスタイル */
 .modal {
@@ -886,7 +883,8 @@ p {
 }
 
 /* 「前へ」「次へ」ボタンのデザイン */
-.prev, .next {
+.prev,
+.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -902,24 +900,34 @@ p {
 }
 
 /* 左右のボタンの位置 */
-.prev { left: 20px; }
-.next { right: 20px; }
+.prev {
+  left: 20px;
+}
+.next {
+  right: 20px;
+}
 
 /* ホバー時の透明度調整 */
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (max-width: 991px) {
-  .prev, .next {
+  .prev,
+  .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
     padding: 3px 5px;
   }
-  
+
   /* 左右のボタンの位置 */
-  .prev { left: 0; }
-  .next { right: 0; }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
 }

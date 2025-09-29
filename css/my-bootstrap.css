@@ -36,47 +36,47 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-twitter {
   background-color: #55acee;
-  text: #FFF;
+  color: #FFF;
 }
 
 .bg-mastodon {
   background-color: #2b90d9;
-  text: #FFF;
+  color: #FFF;
 }
 
 .bg-facebook {
   background-color: #3b5998;
-  text: #FFF;
+  color: #FFF;
 }
 
 .bg-linkedin {
   background-color: #0079ba;
-  text: #FFF;
+  color: #FFF;
 }
 
 .bg-github {
   background-color: #333;
-  text: #FFF;
+  color: #FFF;
 }
 
 .bg-qiita {
   background-color: #79bd28;
-  text: #FFF;
+  color: #FFF;
 }
 
 .bg-misskey {
   background-color: #00acc1;
-  text: #FFF;
+  color: #FFF;
 }
 
 .bg-soundcloud{
   background-color: #ff3300;
-  text: #FFF;
+  color: #FFF;
 }
 
 /* aタグのスタイル */
 a {
-  text-decoration: none;
+  color-decoration: none;
   color: #333;
 }
 a:hover {
