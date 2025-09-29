@@ -1,3 +1,28 @@
+/* common.css */
+
+html {
+  scroll-padding-top: 90px;
+}
+@media (max-width: 991px) {
+  html {
+    scroll-padding-top: 7svh;
+  }
+}
+
+/* reduce-motion でないときだけ smooth */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* reduce-motion のときは即座に移動 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
 /* header */
 
 .header {
@@ -9,7 +34,7 @@
   z-index: 100;
   transition: background-color 0.5s;
   /* 背景色と高さをじんわり変更 */
-  width: 100vw;
+  width: 100%;
   height: 90px;
   margin: 0;
 }
@@ -57,7 +82,6 @@
   padding: 30px 0;
   display: flex;
   justify-content: center;
-  justify-content: center;
   border-top: 0.6px solid #bababa;
   border-bottom: 0.6px solid #bababa;
 }
@@ -98,6 +122,23 @@
 }
 
 /* bottom-components */
+
+/* フェードインアウト */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+.fade-in-once {
+  animation: fadeIn 0.6s ease-in-out;
+}
+/* フェードインアウト */
 
 /* SNS Icons */
 .sns-icons {

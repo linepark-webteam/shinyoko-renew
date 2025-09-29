@@ -73,6 +73,9 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/contact.css" />
 
+    <!-- FV プリロード -->
+    <link rel="preload" as="image" href="./img/fv.webp" />
+
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -93,7 +96,7 @@
   <body>
     <header class="header js-header container-fluid">
       <div class="header-wrapper container-fluid px-3 px-lg-5">
-        <a class="header-logo-link" href="#"
+        <a class="header-logo-link" href="#main"
           ><img
             class="header-logo"
             src="./img/heading-logo.png"
@@ -101,7 +104,6 @@
             width="399"
             height="160"
             loading="eager"
-            fetchpriority="high"
             decoding="async"
         /></a>
       </div>
@@ -113,6 +115,17 @@
       <!-- FV -->
       <section class="fv js-fv slider container-fluid">
         <div class="fv-wrap">
+          <picture aria-hidden="true">
+            <img
+              class="fv-bg"
+              src="./img/fv.webp"
+              alt=""
+              width="1920"
+              height="1080"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </picture>
           <p
             class="fv-headline text-animate"
             data-text="新横浜の例会が始まる！"
@@ -127,8 +140,8 @@
           <!-- 10月分 -->
           <div
             class="application-btn schedule mt-5"
-            data-start-date="2025-04-23T00:00:00"
-            data-end-date="2025-10-27T23:59:59"
+            data-start-date="2025-04-23T00:00:00+09:00"
+            data-end-date="2025-10-27T23:59:59+09:00"
           >
             <a
               href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=9730"
@@ -144,8 +157,8 @@
           <!-- 11月分 -->
           <!-- <div
           class="application-btn schedule mt-5"
-          data-start-date="2025-04-23T00:00:00"
-          data-end-date="2025-11-24T23:59:59"
+          data-start-date="2025-04-23T00:00:00+09:00"
+          data-end-date="2025-11-24T23:59:59+09:00"
         >
           <a
             href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=＊"
@@ -160,8 +173,8 @@
           <!-- 12月分 -->
           <!-- <div
           class="application-btn schedule mt-5"
-          data-start-date="2025-04-23T00:00:00"
-          data-end-date="2025-12-22T23:59:59"
+          data-start-date="2025-04-23T00:00:00+09:00"
+          data-end-date="2025-12-22T23:59:59+09:00"
         >
           <a
             href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=＊"
@@ -201,6 +214,7 @@
               class="about-list"
               role="tablist"
               aria-label="コンテンツ切替タブ"
+              aria-orientation="horizontal"
             >
               <button
                 type="button"
@@ -277,8 +291,8 @@
                 <div class="schedule-group">
                   <div
                     class="schedule mt-3"
-                    data-start-date="2025-01-27T00:00:00"
-                    data-end-date="2025-10-27T23:59:59"
+                    data-start-date="2025-01-27T00:00:00+09:00"
+                    data-end-date="2025-10-27T23:59:59+09:00"
                   >
                     <div>
                       <h3>第22回例会</h3>
@@ -362,7 +376,10 @@
                   class="mb-3"
                   src="./img/sasagawa2.webp"
                   alt="笹川代表"
+                  width="500"
+                  height="500"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="about-text">
@@ -403,9 +420,12 @@
                     <img
                       id="mainImage"
                       src="./img/s1.JPEG"
-                      alt="Main Image"
+                      alt="代表世話人 笹川政吉の写真"
                       class="img-fluid"
+                      width="1076"
+                      height="1522"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 </div>
@@ -462,7 +482,7 @@
                             <img
                               class="col-12"
                               src="./img/s1.JPEG"
-                              alt="笹川 政吉"
+                              alt="代表世話人 笹川 政吉の写真"
                               loading="lazy"
                             />
                             <p class="manager-text title mt-1">代表世話人</p>
@@ -487,7 +507,7 @@
                             <img
                               class="col-12"
                               src="./img/s2.JPEG"
-                              alt="西川 毅"
+                              alt="副代表世話人 西川 毅の写真"
                               loading="lazy"
                             />
                             <p class="manager-text title mt-1">副代表世話人</p>
@@ -512,7 +532,7 @@
                             <img
                               class="col-12"
                               src="./img/s3.JPEG"
-                              alt="小林 陽子"
+                              alt="副代表世話人 小林 陽子の写真"
                               loading="lazy"
                             />
                             <p class="manager-text title mt-1">副代表世話人</p>
@@ -538,7 +558,7 @@
                             <img
                               class="col-12"
                               src="./img/s5.JPEG"
-                              alt="西村 慎太郎"
+                              alt="会計 西村 慎太郎の写真"
                               loading="lazy"
                             />
                             <p class="manager-text title mt-1">会計</p>
@@ -566,7 +586,7 @@
                             <img
                               class="col-12"
                               src="./img/s4.JPEG"
-                              alt="冨澤 亮二"
+                              alt="世話人 冨澤 亮二の写真"
                               loading="lazy"
                             />
                             <p class="manager-text title mt-1">世話人</p>
@@ -592,7 +612,7 @@
                             <img
                               class="col-12"
                               src="./img/s6.JPEG"
-                              alt="森 穂高"
+                              alt="世話人 森 穂高の写真"
                               loading="lazy"
                             />
                             <p class="manager-text title mt-1">世話人</p>
@@ -618,7 +638,7 @@
                             <img
                               class="col-12"
                               src="./img/s7.JPEG"
-                              alt="渡邉 真澄"
+                              alt="世話人 渡邉 真澄の写真"
                               loading="lazy"
                             />
                             <p class="manager-text title mt-1">世話人</p>
@@ -644,7 +664,7 @@
                             <img
                               class="col-12"
                               src="./img/s8.JPEG"
-                              alt="安達 エリック"
+                              alt="世話人 安達 エリックの写真"
                               loading="lazy"
                             />
                             <p class="manager-text title mt-1">世話人</p>
@@ -666,13 +686,16 @@
             aria-labelledby="tab-about"
             hidden
           >
-            <div class="about-whtis-shusei container">
+            <div class="about-what-is-shusei container">
               <div class="about-img">
                 <img
                   class="mb-3"
                   src="./img/group-photo3.webp"
                   alt="守成クラブ集合写真"
+                  width="1168"
+                  height="777"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div class="about-text">
@@ -699,8 +722,8 @@
           <!-- 10月分 -->
           <div
             class="application-btn schedule mt-5"
-            data-start-date="2025-04-23T00:00:00"
-            data-end-date="2025-10-27T23:59:59"
+            data-start-date="2025-04-23T00:00:00+09:00"
+            data-end-date="2025-10-27T23:59:59+09:00"
           >
             <a
               href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=9730"
@@ -716,8 +739,8 @@
           <!-- 11月分 -->
           <!-- <div
           class="application-btn schedule mt-5"
-          data-start-date="2025-04-23T00:00:00"
-          data-end-date="2025-11-24T23:59:59"
+          data-start-date="2025-04-23T00:00:00+09:00"
+          data-end-date="2025-11-24T23:59:59+09:00"
         >
           <a
             href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=＊"
@@ -732,8 +755,8 @@
           <!-- 12月分 -->
           <!-- <div
           class="application-btn schedule mt-5"
-          data-start-date="2025-04-23T00:00:00"
-          data-end-date="2025-12-22T23:59:59"
+          data-start-date="2025-04-23T00:00:00+09:00"
+          data-end-date="2025-12-22T23:59:59+09:00"
         >
           <a
             href="https://www.shuseiclub.jp/shinyokohama/entry_form/index.php?e=＊"
@@ -804,7 +827,10 @@
           <div class="access-img-wrapper img-wrapper">
             <iframe
               class="access-google-map"
+              title="アルカンシエル横浜の地図"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3247.7456660776184!2d139.61395097622542!3d35.51056663932948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185ed1255acba3%3A0xef28325dfb262147!2z44Ki44Or44Kr44Oz44K344Ko44Or5qiq5rWcIGx1eGUgbWFyaWFnZQ!5e0!3m2!1sja!2sus!4v1740616300799!5m2!1sja!2sus"
+              width="600"
+              height="600"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
@@ -922,22 +948,22 @@
             <!-- <div class="meeting-item"> /* 1月 */
           <p>1月</p>
           <div class="image-wrapper slideshow" data-month="1">
-            <img class="meeting-image expandable active" src="./img/click01.png" alt="2025年1月-1" loading="lazy" onclick="openModal(this)">
-            <img class="meeting-image expandable" src="./img/click02.png" alt="2025年1月-2" loading="lazy" onclick="openModal(this)">
-            <img class="meeting-image expandable" src="./img/click03.png" alt="2025年1月-3" loading="lazy" onclick="openModal(this)">
-            <img class="meeting-image expandable" src="./img/click04.png" alt="2025年1月-4" loading="lazy" onclick="openModal(this)">
-            <img class="meeting-image expandable" src="./img/click05.png" alt="2025年1月-5" loading="lazy" onclick="openModal(this)">
+            <img class="meeting-image expandable active" src="./img/click01.png" alt="2025年1月-1" loading="lazy" >
+            <img class="meeting-image expandable" src="./img/click02.png" alt="2025年1月-2" loading="lazy" >
+            <img class="meeting-image expandable" src="./img/click03.png" alt="2025年1月-3" loading="lazy" >
+            <img class="meeting-image expandable" src="./img/click04.png" alt="2025年1月-4" loading="lazy" >
+            <img class="meeting-image expandable" src="./img/click05.png" alt="2025年1月-5" loading="lazy" >
             <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
           </div>
         </div> -->
             <!-- <div class="meeting-item"> /* 2月 */
           <p>2月</p>
             <div class="image-wrapper slideshow" data-month="2">
-              <img class="meeting-image expandable active" src="./img/click02.png" alt="2025年2月-1" loading="lazy" onclick="openModal(this)">
-              <img class="meeting-image expandable" src="./img/click03.png" alt="2025年2月-2" loading="lazy" onclick="openModal(this)">
-              <img class="meeting-image expandable" src="./img/click04.png" alt="2025年2月-3" loading="lazy" onclick="openModal(this)">
-              <img class="meeting-image expandable" src="./img/click05.png" alt="2025年2月-4" loading="lazy" onclick="openModal(this)">
-              <img class="meeting-image expandable" src="./img/click01.png" alt="2025年2月-5" loading="lazy" onclick="openModal(this)">
+              <img class="meeting-image expandable active" src="./img/click02.png" alt="2025年2月-1" loading="lazy" >
+              <img class="meeting-image expandable" src="./img/click03.png" alt="2025年2月-2" loading="lazy" >
+              <img class="meeting-image expandable" src="./img/click04.png" alt="2025年2月-3" loading="lazy" >
+              <img class="meeting-image expandable" src="./img/click05.png" alt="2025年2月-4" loading="lazy" >
+              <img class="meeting-image expandable" src="./img/click01.png" alt="2025年2月-5" loading="lazy" >
               <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
             </div>
         </div> -->
@@ -950,35 +976,30 @@
                   src="./img/202503/3-1.JPEG"
                   alt="2025年3月-1"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202503/3-2.JPEG"
                   alt="2025年3月-2"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202503/3-3.JPEG"
                   alt="2025年3月-3"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202503/3-4.JPEG"
                   alt="2025年3月-4"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202503/3-5.JPEG"
                   alt="2025年3月-5"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
               </div>
@@ -992,35 +1013,30 @@
                   src="./img/202504/4-1.JPEG"
                   alt="2025年4月-1"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202504/4-2.JPEG"
                   alt="2025年4月-2"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202504/4-3.JPEG"
                   alt="2025年4月-3"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202504/4-4.JPEG"
                   alt="2025年4月-4"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202504/4-5.JPEG"
                   alt="2025年4月-5"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
               </div>
@@ -1034,35 +1050,30 @@
                   src="./img/202505/5-1.JPEG"
                   alt="2025年5月-1"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202505/5-2.JPEG"
                   alt="2025年5月-2"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202505/5-3.JPEG"
                   alt="2025年5月-3"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202505/5-4.JPEG"
                   alt="2025年5月-4"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202505/5-5.JPEG"
                   alt="2025年5月-5"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
               </div>
@@ -1076,42 +1087,36 @@
                   src="./img/202506/6-1.JPEG"
                   alt="2025年6月-1"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202506/6-2.JPEG"
                   alt="2025年6月-2"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202506/6-3.JPEG"
                   alt="2025年6月-3"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202506/6-4.JPEG"
                   alt="2025年6月-4"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202506/6-5.JPEG"
                   alt="2025年6月-5"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202506/6-6.JPEG"
                   alt="2025年6月-6"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
               </div>
@@ -1126,35 +1131,30 @@
                   src="./img/202507/7-1.JPEG"
                   alt="2025年7月-1"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202507/7-2.JPEG"
                   alt="2025年7月-2"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202507/7-3.JPEG"
                   alt="2025年7月-3"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202507/7-4.JPEG"
                   alt="2025年7月-4"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202507/7-5.JPEG"
                   alt="2025年7月-5"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
               </div>
@@ -1169,56 +1169,48 @@
                   src="./img/202508/8-1.JPEG"
                   alt="2025年8月-1"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202508/8-2.JPEG"
                   alt="2025年8月-2"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202508/8-3.JPEG"
                   alt="2025年8月-3"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202508/8-4.JPEG"
                   alt="2025年8月-4"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202508/8-5.JPEG"
                   alt="2025年8月-5"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202508/8-6.JPEG"
                   alt="2025年8月-6"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202508/8-7.JPEG"
                   alt="2025年8月-7"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <img
                   class="meeting-image expandable"
                   src="./img/202508/8-8.JPEG"
                   alt="2025年8月-8"
                   loading="lazy"
-                  onclick="openModal(this)"
                 />
                 <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i>
               </div>
@@ -1234,7 +1226,7 @@
                   loading="lazy"
                 />
                 <!-- <img class="meeting-image 
-            expandable" src="./img/coming-soon.png" alt="2025年9月" loading="lazy" onclick="openModal(this)"> -->
+            expandable" src="./img/coming-soon.png" alt="2025年9月" loading="lazy" > -->
                 <!-- <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i> -->
               </div>
             </div>
@@ -1248,7 +1240,7 @@
                   loading="lazy"
                 />
                 <!-- <img class="meeting-image 
-            expandable" src="./img/coming-soon.png" alt="2025年10月" loading="lazy" onclick="openModal(this)"> -->
+            expandable" src="./img/coming-soon.png" alt="2025年10月" loading="lazy" > -->
                 <!-- <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i> -->
               </div>
             </div>
@@ -1262,7 +1254,7 @@
                   loading="lazy"
                 />
                 <!-- <img class="meeting-image 
-            expandable" src="./img/coming-soon.png" alt="2025年11月" loading="lazy" onclick="openModal(this)"> -->
+            expandable" src="./img/coming-soon.png" alt="2025年11月" loading="lazy" > -->
                 <!-- <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i> -->
               </div>
             </div>
@@ -1276,7 +1268,7 @@
                   loading="lazy"
                 />
                 <!-- <img class="meeting-image 
-            expandable" src="./img/coming-soon.png" alt="2025年12月" loading="lazy" onclick="openModal(this)"> -->
+            expandable" src="./img/coming-soon.png" alt="2025年12月" loading="lazy" > -->
                 <!-- <i class="zoom-icon fa-solid fa-magnifying-glass-plus"></i> -->
               </div>
             </div>
@@ -1284,14 +1276,26 @@
         </div>
 
         <!-- モーダル（拡大画像用） -->
-        <div id="imageModal" class="modal">
-          <span class="close" onclick="closeModal()">&times;</span>
-          <img class="modal-content" id="modalImg" />
-          <div id="caption"></div>
+        <div
+          id="imageModal"
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label="画像ビューア"
+          aria-describedby="caption"
+        >
+          <button type="button" class="close" aria-label="閉じる">
+            &times;
+          </button>
+          <button type="button" class="prev" aria-label="前の画像">
+            &#10094;
+          </button>
+          <button type="button" class="next" aria-label="次の画像">
+            &#10095;
+          </button>
 
-          <!-- 前後の画像に切り替えるボタン -->
-          <span class="prev" onclick="changeImage(-1)">&#10094;</span>
-          <span class="next" onclick="changeImage(1)">&#10095;</span>
+          <img id="modalImg" class="modal-content" alt="" />
+          <p id="caption"></p>
         </div>
       </section>
 
@@ -1338,7 +1342,13 @@
               <label for="name"
                 >お名前:　<span class="required">必須</span></label
               >
-              <input type="text" id="name" name="name" value="" required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="kana"
@@ -1350,13 +1360,25 @@
               <label for="email"
                 >Email:　<span class="required">必須</span></label
               >
-              <input type="email" id="email" name="email" value="" required />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="phone"
                 >連絡先:　<span class="required">必須</span></label
               >
-              <input type="text" id="phone" name="phone" value="" required />
+              <input
+                id="phone"
+                name="phone"
+                inputmode="tel"
+                autocomplete="tel"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="message"
@@ -1386,7 +1408,10 @@
               class="sns-icons"
               src="./img/instagram.png"
               alt="Instagram"
+              width="151"
+              height="151"
               loading="lazy"
+              decoding="async"
           /></a>
           <a
             href="https://www.facebook.com/groups/837003928068548/?locale=ja_JP"
@@ -1396,14 +1421,20 @@
               class="sns-icons"
               src="./img/facebook.png"
               alt="Facebook"
+              width="494"
+              height="496"
               loading="lazy"
+              decoding="async"
           /></a>
           <a href="https://lin.ee/umL7RKZ" target="_blank" rel="noopener"
             ><img
               class="sns-icons"
               src="./img/line.png"
               alt="LINE"
+              width="427"
+              height="430"
               loading="lazy"
+              decoding="async"
           /></a>
           <a class="totop" href="#" aria-label="ページ上部へ戻る"></a>
         </div>
@@ -1413,7 +1444,7 @@
     <footer class="container-fluid">
       <div class="footer-items">
         <div class="footer-logo-wrapper">
-          <a href="#"
+          <a href="#main"
             ><img
               class="footer-logo"
               src="./img/footer-logo.png"
@@ -1436,8 +1467,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./js/app.js"></script>
-    <script src="./js/introduction.js"></script>
-    <script src="./js/contactform.js"></script>
+    <script src="./js/app.js" defer></script>
+    <script src="./js/contactform.js" defer></script>
   </body>
 </html>

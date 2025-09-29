@@ -1,10 +1,19 @@
 /*************************************************
- * 守成クラブ新横浜 - メインスクリプト（統合＆修正版）
+ * 守成クラブ新横浜 - メインスクリプト（app.js (統合＆修正版)）
+ * 追加点：
+ * - モーダルのフォーカス戻し＆フォーカストラップ（A11y）
+ * - prefers-reduced-motion 対応（動きを減らす）
+ * - inline の onclick を廃止（イベント委任）
  **************************************************/
 
-// =======================
-// ヘッダーの透過・解除
-// =======================
+// 動きを減らす設定（OS側）の検出
+const PREFERS_REDUCED_MOTION = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
+
+/* =======================
+   ヘッダーの透過・解除
+======================= */
 document.addEventListener("DOMContentLoaded", function () {
   const fvElement = document.querySelector(".js-fv");
   const header = document.querySelector(".js-header");
@@ -22,9 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
   handleScroll(); // 初期反映
 });
 
-// ==================================================
-// ページ内リンク：ヘッダー高さ考慮 + スムーススクロール
-// ==================================================
+/* ==================================================
+   ページ内リンク：ヘッダー高さ考慮 + スクロール
+   （reduce-motion時は即スクロール）
+================================================== */
 document.addEventListener("DOMContentLoaded", function () {
   const headerEl = document.querySelector(".header");
   const headerHeight = headerEl ? headerEl.offsetHeight : 0;
@@ -44,15 +54,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       window.scrollTo({
         top: targetPosition,
-        behavior: "smooth",
+        behavior: PREFERS_REDUCED_MOTION ? "auto" : "smooth",
       });
     });
   });
 });
 
-// =======================
-// タブメニュー（WAI-ARIA & キーボード操作対応）
-// =======================
+/* =======================
+   タブメニュー（WAI-ARIA）
+======================= */
 document.addEventListener("DOMContentLoaded", function () {
   const tablist = document.querySelector('.about-list[role="tablist"]');
   if (!tablist) return;
@@ -63,25 +73,21 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   function activateTab(tab, { setFocus = true } = {}) {
-    // すべてのタブを未選択に
     tabs.forEach((t) => {
       t.setAttribute("aria-selected", "false");
       t.setAttribute("tabindex", "-1");
       t.classList.remove("is-btn-active");
     });
 
-    // すべてのパネルを非表示に
     panels.forEach((p) => {
       p.hidden = true;
       p.classList.remove("is-contents-active");
     });
 
-    // 選択タブ
     tab.setAttribute("aria-selected", "true");
     tab.setAttribute("tabindex", "0");
     tab.classList.add("is-btn-active");
 
-    // ひも付くパネルを表示
     const panelId = tab.getAttribute("aria-controls");
     const panel = document.getElementById(panelId);
     if (panel) {
@@ -92,12 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (setFocus) tab.focus();
   }
 
-  // クリックで切替
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => activateTab(tab));
   });
 
-  // キーボード操作（左右/ホーム/エンド/スペース/エンター）
   tablist.addEventListener("keydown", (e) => {
     const currentIndex = tabs.indexOf(document.activeElement);
     if (currentIndex === -1) return;
@@ -133,35 +137,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (nextIndex != null) {
-      // フォーカス先を移しつつ即時アクティブ化
       activateTab(tabs[nextIndex], { setFocus: true });
     }
   });
 
-  // 初期表示（HTML側で設定済みだが念のため同期）
-  const initiallySelected = tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0];
+  const initiallySelected =
+    tabs.find((t) => t.getAttribute("aria-selected") === "true") || tabs[0];
   if (initiallySelected) activateTab(initiallySelected, { setFocus: false });
 });
 
-// =======================
-// デリミタの背景（簡易パララックス）
-// =======================
+/* =======================
+   デリミタの背景（簡易パララックス）
+   reduce-motion時は無効化
+======================= */
 document.addEventListener("DOMContentLoaded", function () {
+  if (PREFERS_REDUCED_MOTION) return;
   const delimiter = document.querySelector(".delimiter");
   if (!delimiter) return;
 
   function updateBackgroundPosition() {
     const scrollTop = window.scrollY;
     const bgPosition = scrollTop / 2;
-    delimiter.style.backgroundPosition = `center top -${bgPosition}px`;
+    delimiter.style.backgroundPosition = `center ${-bgPosition}px`;
   }
   window.addEventListener("scroll", updateBackgroundPosition);
   updateBackgroundPosition();
 });
 
-// =======================
-// ページトップに戻るボタン
-// =======================
+/* =======================
+   ページトップに戻るボタン
+======================= */
 document.addEventListener("DOMContentLoaded", function () {
   const topBtn = document.getElementById("toPageTop");
   if (!topBtn) return;
@@ -186,9 +191,10 @@ document.addEventListener("DOMContentLoaded", function () {
   handleScroll();
 });
 
-// =======================
-// FV メッセージアニメーション
-// =======================
+/* =======================
+   FV メッセージアニメーション
+   reduce-motion時は一括表示
+======================= */
 document.addEventListener("DOMContentLoaded", function () {
   const textContainer = document.querySelector(".text-animate");
   if (!textContainer) return;
@@ -196,6 +202,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const text = textContainer.dataset.text;
   if (typeof text !== "string" || text.length === 0) {
     console.error("data-text が設定されていません");
+    return;
+  }
+
+  if (PREFERS_REDUCED_MOTION) {
+    textContainer.textContent = text;
     return;
   }
 
@@ -224,27 +235,27 @@ document.addEventListener("DOMContentLoaded", function () {
   animateCharacter();
 });
 
-// =======================================
-// 例会風景 モーダルの制御
-// =======================================
+/* =======================================
+   例会風景 モーダルの制御（A11y対応込み）
+   - inline onclick を使わず、イベント委任で起動
+   - フォーカスを開閉で管理＋フォーカストラップ
+======================================= */
 let currentIndex = 0;
 let images = [];
-
-function openModal(imgElement) {
-  images = Array.from(document.querySelectorAll(".meeting-image.expandable"));
-  currentIndex = images.indexOf(imgElement);
-  updateModalImage();
-  const modal = document.getElementById("imageModal");
-  if (modal) modal.style.display = "flex";
-  document.addEventListener("keydown", handleKeydown);
-}
+let lastFocused = null; // モーダルを開く直前のフォーカス
 
 function updateModalImage() {
   if (currentIndex >= 0 && currentIndex < images.length) {
     const modalImg = document.getElementById("modalImg");
     const caption = document.getElementById("caption");
-    if (modalImg) modalImg.src = images[currentIndex].src;
-    if (caption) caption.innerHTML = images[currentIndex].alt;
+    if (!modalImg) return; // 念のため
+
+    const src = images[currentIndex].src;
+    const alt = images[currentIndex].alt || "";
+
+    modalImg.src = src;
+    modalImg.alt = alt;
+    if (caption) caption.textContent = alt;
   }
 }
 
@@ -255,10 +266,69 @@ function changeImage(direction) {
   updateModalImage();
 }
 
+function getFocusableIn(container) {
+  return Array.from(
+    container.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+  ).filter((el) => !el.hasAttribute("disabled") && el.offsetParent !== null);
+}
+
+function trapFocus(e) {
+  if (e.key !== "Tab") return;
+  const modal = document.getElementById("imageModal");
+  if (!modal || modal.style.display === "none") return;
+
+  const focusables = getFocusableIn(modal);
+  if (focusables.length === 0) return;
+
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+
+  if (e.shiftKey) {
+    if (document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    }
+  } else {
+    if (document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+}
+
+function openModal(imgElement) {
+  lastFocused = document.activeElement;
+
+  const scope = imgElement.closest(".slideshow") || document;
+  images = Array.from(scope.querySelectorAll(".meeting-image.expandable"));
+  currentIndex = images.indexOf(imgElement);
+  updateModalImage();
+
+  const modal = document.getElementById("imageModal");
+  if (modal) {
+    modal.style.display = "flex";
+    // 初期フォーカスを閉じるボタンへ
+    const closeBtn = modal.querySelector(".close");
+    if (closeBtn) closeBtn.focus();
+    // キーボード操作
+    document.addEventListener("keydown", handleKeydown);
+    modal.addEventListener("keydown", trapFocus);
+  }
+}
+
 function closeModal() {
   const modal = document.getElementById("imageModal");
-  if (modal) modal.style.display = "none";
+  if (modal) {
+    modal.style.display = "none";
+    modal.removeEventListener("keydown", trapFocus);
+  }
   document.removeEventListener("keydown", handleKeydown);
+  // 元の要素へフォーカスを戻す
+  if (lastFocused && typeof lastFocused.focus === "function") {
+    lastFocused.focus();
+  }
 }
 
 function handleKeydown(event) {
@@ -267,7 +337,7 @@ function handleKeydown(event) {
   else if (event.key === "Escape") closeModal();
 }
 
-// ★★ DOM構築後に安全にイベントを貼る（モーダル内）
+// DOM構築後（モーダル内のイベント）
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("imageModal");
   if (!modal) return;
@@ -284,27 +354,58 @@ document.addEventListener("DOMContentLoaded", function () {
     else if (diffX < -50) changeImage(-1);
   });
 
+  // 背景クリックで閉じる
   modal.addEventListener("click", function (event) {
     if (event.target === this) closeModal();
   });
 });
 
-// =======================================
-// 例会風景：ビューポートに入るまで1枚目固定＋入ったら再生
-// =======================================
+document.addEventListener("click", (e) => {
+  // 画像そのもの or アイコン or 画像枠をクリックしたときに拾う
+  const wrapper = e.target.closest(".image-wrapper");
+  const clickedImg = e.target.closest(".meeting-image.expandable");
+  const activeImgInWrapper = wrapper?.querySelector(
+    ".meeting-image.expandable.active"
+  );
 
-// 各スライドショーの状態管理
+  const img = clickedImg || activeImgInWrapper;
+  if (img) {
+    e.preventDefault();
+    openModal(img);
+    return;
+  }
+
+  // モーダル内ボタン
+  if (e.target.closest("#imageModal .close")) {
+    e.preventDefault();
+    closeModal();
+    return;
+  }
+  if (e.target.closest("#imageModal .prev")) {
+    e.preventDefault();
+    changeImage(-1);
+    return;
+  }
+  if (e.target.closest("#imageModal .next")) {
+    e.preventDefault();
+    changeImage(1);
+    return;
+  }
+});
+
+/* =======================================
+   例会風景：ビューポートに入るまで1枚目固定＋入ったら再生
+   reduce-motion時は自動再生しない
+======================================= */
 const slideshowState = new WeakMap(); // el -> { index, timerId, running, images }
 
 function initSlideshowElement(el) {
   const imgs = el.querySelectorAll(".meeting-image");
   if (imgs.length <= 1) return;
 
-  // まずは必ず1枚目だけ表示（初期化）
   imgs.forEach((img) => img.classList.remove("active"));
   imgs[0].classList.add("active");
 
-  // 状態を保存（再生はまだしない）
   slideshowState.set(el, {
     index: 0,
     timerId: null,
@@ -314,6 +415,7 @@ function initSlideshowElement(el) {
 }
 
 function startSlideshow(el) {
+  if (PREFERS_REDUCED_MOTION) return; // 動きを減らす設定では再生しない
   const st = slideshowState.get(el);
   if (!st || st.running || st.images.length <= 1) return;
 
@@ -339,26 +441,20 @@ function setupSlideshowsInView() {
   const slideshows = document.querySelectorAll(".slideshow");
   if (!slideshows.length) return;
 
-  // すべて初期化（＝1枚目固定表示）
   slideshows.forEach(initSlideshowElement);
 
-  // 交差監視：見えたら開始／外れたら停止
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         const el = entry.target;
-        if (!slideshowState.has(el)) return; // 画像1枚以下など
-
-        if (entry.isIntersecting) {
-          startSlideshow(el);
-        } else {
-          stopSlideshow(el);
-        }
+        if (!slideshowState.has(el)) return;
+        if (entry.isIntersecting) startSlideshow(el);
+        else stopSlideshow(el);
       });
     },
     {
       root: null,
-      threshold: 0.25, // 25% 以上見えたら「入った」
+      threshold: 0.25,
     }
   );
 
@@ -367,9 +463,9 @@ function setupSlideshowsInView() {
 
 document.addEventListener("DOMContentLoaded", setupSlideshowsInView);
 
-// =======================================
-// 申込みフォームの表示・非表示自動切換え
-// =======================================
+/* =======================================
+   申込みフォームの表示・非表示自動切換え
+======================================= */
 document.addEventListener("DOMContentLoaded", function () {
   function toggleDisplayByDate() {
     const now = new Date();
@@ -387,18 +483,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // setInterval(toggleDisplayByDate, 86400000);
 });
 
-// =======================================================
-// 代表/世話人セクション：in-viewでアニメ解禁（入るまで静止）
-// =======================================================
-function attachImageContainerListener() {
-  document.querySelectorAll(".img-container img").forEach((img) => {
-    img.addEventListener("click", function () {
-      const newSrc = this.getAttribute("src");
-      const mainImageEl = document.getElementById("mainImage");
-      if (mainImageEl) mainImageEl.src = newSrc;
-    });
-  });
-}
+/* =======================================================
+   代表/世話人セクション：in-viewでアニメ解禁（入るまで静止）
+   reduce-motion時はフェード演出を省略
+======================================================= */
 
 function setInitialProfile() {
   const firstThumb = document.querySelector(".thumb");
@@ -419,7 +507,7 @@ function setInitialProfile() {
   if (repTitleEl) repTitleEl.textContent = title + " ";
   if (repNameEl) repNameEl.textContent = name;
 
-  mainImageEl.src = imgSrc; // アニメなしで静止表示
+  mainImageEl.src = imgSrc;
 
   const isEmptyBio = !bio || /<table[^>]*>\s*<\/table>/.test(bio);
   if (isEmptyBio) {
@@ -438,6 +526,8 @@ let introArmed = false;
 function armIntroAnimations() {
   if (introArmed) return;
   introArmed = true;
+
+  if (PREFERS_REDUCED_MOTION) return; // フェード演出は省略
 
   const mainImageEl = document.getElementById("mainImage");
   const tableWrapper = document.querySelector(".about-intro-table");
@@ -490,14 +580,13 @@ function bindThumbClicks() {
         } else {
           if (mainBioEl) {
             mainBioEl.innerHTML = bio;
-            attachImageContainerListener();
           }
           if (tableWrapper) tableWrapper.classList.remove("fade-out");
           if (imageWrapper) imageWrapper.style.alignItems = "flex-start";
         }
       };
 
-      if (introArmed && mainImageEl) {
+      if (!PREFERS_REDUCED_MOTION && introArmed && mainImageEl) {
         mainImageEl.classList.add("fade-out");
         setTimeout(() => {
           mainImageEl.src = imgSrc;
@@ -525,7 +614,7 @@ function observeIntroSection() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           armIntroAnimations();
-          io.unobserve(target); // 初回だけ
+          io.unobserve(target);
         }
       });
     },
@@ -538,4 +627,16 @@ document.addEventListener("DOMContentLoaded", () => {
   setInitialProfile(); // 1枚目を静止表示
   bindThumbClicks(); // サムネにバインド
   observeIntroSection(); // in-view監視
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".meeting-image.expandable").forEach((img) => {
+    img.tabIndex = 0; // フォーカス可能に
+    img.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(img);
+      }
+    });
+  });
 });
