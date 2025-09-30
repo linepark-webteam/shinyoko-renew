@@ -1,6 +1,6 @@
 <?php
 /**
- * data/form_elements.php
+ * /data/form_elements.php
  * 例会申込ボタンのデータ（必要に応じて増やす）
  * 
  * [

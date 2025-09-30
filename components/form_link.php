@@ -1,11 +1,11 @@
 <?php
-
 /**
  * /components/form_link.php
  * 受け取る変数:
  *   $form_items (必須): [
  *     ['label'=>..., 'href'=>..., 'start'=>..., 'end'=>...], ...
  *   ]
+ * ($form_itemsは /data/form_elements.php から $form_elements をそのまま受け取る想定)
  *   $section_title (任意): 見出しテキスト（nullで非表示）
  *   $section_classes (任意): sectionのclass（デフォ: 'application container my-5'）
  */
@@ -20,6 +20,7 @@ if (!function_exists('h')) {
     }
 }
 ?>
+
 <section class="<?= h($section_classes) ?>">
     <?php if (!empty($section_title)): ?>
         <h2><?= h($section_title) ?></h2>

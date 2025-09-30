@@ -125,7 +125,7 @@
 
     $form_items      = $form_elements;
     $section_title   = '例会申し込みフォーム';
-    $section_classes = 'application container mt-5';
+    $section_classes = 'application container my-5';
 
     include __DIR__ . '/components/form_link.php';
 
