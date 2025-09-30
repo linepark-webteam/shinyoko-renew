@@ -1,12 +1,18 @@
 <?php
 
 /**
- * /components/application.php
+ * /components/form_link.php
+ * 受け取る変数:
+ *   $form_items (必須): [
+ *     ['label'=>..., 'href'=>..., 'start'=>..., 'end'=>...], ...
+ *   ]
+ *   $section_title (任意): 見出しテキスト（nullで非表示）
+ *   $section_classes (任意): sectionのclass（デフォ: 'application container my-5'）
  */
-if (!isset($app_items) || !is_array($app_items)) return;
+if (!isset($form_items) || !is_array($form_items)) return;
 $section_classes = $section_classes ?? 'application container my-5';
 
-// ★ ここを追加（再定義防止）
+// 再定義防止
 if (!function_exists('h')) {
     function h($s)
     {
@@ -15,11 +21,11 @@ if (!function_exists('h')) {
 }
 ?>
 <section class="<?= h($section_classes) ?>">
-    <?php if (!empty($app_title)): ?>
-        <h2><?= h($app_title) ?></h2>
+    <?php if (!empty($section_title)): ?>
+        <h2><?= h($section_title) ?></h2>
     <?php endif; ?>
     <div class="schedule-group mt-3">
-        <?php foreach ($app_items as $item): ?>
+        <?php foreach ($form_items as $item): ?>
             <div class="application-btn schedule mt-5"
                 data-start-date="<?= h($item['start'] ?? '') ?>"
                 data-end-date="<?= h($item['end'] ?? '') ?>">

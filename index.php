@@ -121,13 +121,15 @@
     </section>
 
     <?php
-    require __DIR__ . '/data/applications.php';
+    require_once __DIR__ . '/data/form_elements.php';
 
-    $app_items = $applications_2025;
-    $app_title = '例会申し込みフォーム';
+    $form_items      = $form_elements;
+    $section_title   = '例会申し込みフォーム';
     $section_classes = 'application container mt-5';
-    include __DIR__ . '/components/application.php';
-    unset($app_items, $app_title, $section_classes);
+
+    include __DIR__ . '/components/form_link.php';
+
+    unset($form_items, $section_title, $section_classes);
     ?>
 
     <!-- 守成ロゴ -->
@@ -620,13 +622,15 @@
 
     <!-- 例会申し込みボタン -->
     <?php
-    require_once __DIR__ . '/data/applications.php';
+    require_once __DIR__ . '/data/form_elements.php';
 
-    $app_items = $applications_2025;
-    $app_title = null; // 見出しなし
+    $form_items      = $form_elements;
+    $section_title   = null; // 見出しなし
     $section_classes = 'application container my-5';
-    include __DIR__ . '/components/application.php';
-    unset($app_items, $app_title, $section_classes);
+
+    include __DIR__ . '/components/form_link.php';
+
+    unset($form_items, $section_title, $section_classes);
     ?>
 
     <!-- Venue -->
