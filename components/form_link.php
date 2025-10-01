@@ -9,14 +9,16 @@
  *   $section_title (任意): 見出しテキスト（nullで非表示）
  *   $section_classes (任意): sectionのclass（デフォ: 'application container my-5'）
  */
-if (!isset($form_items) || !is_array($form_items)) return;
+if (!isset($form_items) || !is_iterable($form_items)) return;
+
+// デフォルトのclass：null/未定義のときだけclass="application container my-5"となる
 $section_classes = $section_classes ?? 'application container my-5';
 
 // 再定義防止
 if (!function_exists('h')) {
-    function h($s)
-    {
-        return htmlspecialchars($s ?? '', ENT_QUOTES, 'UTF-8');
+    function h($s): string {
+        if(is_array($s) || is_object($s)) return '';
+        return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     }
 }
 ?>
